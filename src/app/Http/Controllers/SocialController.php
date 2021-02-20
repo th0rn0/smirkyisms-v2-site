@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Hash;
 
 use App\Models\User;
 use Validator;
@@ -32,7 +33,7 @@ class SocialController extends Controller
                     'name' => $user->name,
                     'email' => $user->email,
                     'discord_id' => $user->id,
-                    'password' => encrypt('admin@123')
+                    'password' => encrypt(Hash::make(str_random(8)))
                 ]);
     
                 Auth::login($createUser);
