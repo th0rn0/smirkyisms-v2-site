@@ -1,0 +1,23 @@
+version: "2"
+services:
+  app:
+    build:
+      context: .
+    working_dir: /web/html/
+    volumes:
+      - $PWD/src/:/web/html/
+    env_file: $PWD/src/.env
+    ports:
+      - 8000:80
+    links:
+      - database:database
+  database:
+    image: mysql:8
+    volumes:
+      - smirkyismsv2-db:/var/lib/mysql
+    env_file: $PWD/src/.env
+    ports:
+      - 3306:3306
+volumes:
+  smirkyismsv2-db:
+    name: smirkyismsv2-db
