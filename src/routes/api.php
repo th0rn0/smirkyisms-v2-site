@@ -4,6 +4,8 @@ use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
 
 use App\Http\Controllers\BotController;
+use App\Http\Controllers\QuoteController;
+use App\Http\Controllers\ImageController;
 
 /*
 |--------------------------------------------------------------------------
@@ -26,4 +28,12 @@ Route::post('/bot/con', [BotController::class, 'confirm']);
 
 
 Route::post('/quote', [BotController::class, 'addQuote']);
+Route::post('/image', [BotController::class, 'addImage']);
+
+Route::get('/quote/random', [QuoteController::class, 'getRandom']);
+
+Route::get('/image/random', [ImageController::class, 'getRandom']);
+Route::get('/image/{image}/file', [ImageController::class, 'getFile']);
+
+
 

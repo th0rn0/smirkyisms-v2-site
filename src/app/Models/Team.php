@@ -9,6 +9,8 @@ use Laravel\Jetstream\Events\TeamUpdated;
 use Laravel\Jetstream\Team as JetstreamTeam;
 
 use App\Models\BotServer;
+use App\Models\Quote;
+use App\Models\Image;
 
 class Team extends JetstreamTeam
 {
@@ -44,11 +46,29 @@ class Team extends JetstreamTeam
         'deleted' => TeamDeleted::class,
     ];
 
+    /**
+     * Relationships
+     */
     public function bot()
     {
         return $this->hasOne(BotServer::class);
     }
 
+    public function quotes()
+    {
+        return $this->hasMany(Quote::class);
+    }
+
+    public function images()
+    {
+        return $this->hasMany(Image::class);
+    }
+
+    /**
+     * The attributes that are mass assignable.
+     *
+     * @var guild_id
+     */
     public function addBot($guild_id)
     {
         if ($this->bot) {

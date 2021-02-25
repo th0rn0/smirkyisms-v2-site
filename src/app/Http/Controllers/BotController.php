@@ -3,12 +3,16 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use Illuminate\Http\File;
+use Illuminate\Support\Facades\Storage;
+
 use App\Http\Controllers\BaseController as BaseController;
 
 use Validator;
 
 use App\Models\BotServer;
 use App\Models\Quote;
+use App\Models\Image;
 
 class BotController extends BaseController
 {
@@ -62,7 +66,7 @@ class BotController extends BaseController
     {
     	\Log::debug($request);
 	  	$validator = Validator::make($request->all(), [
-	        'text' => 'required',
+	        'text' => 'required|string',
 	        'quote_by' => 'required',
 			'submitted_by' => 'required',
 			'channel_name' => 'required',
@@ -80,6 +84,33 @@ class BotController extends BaseController
 	        'team_id' => $botServer->team_id,
         ]);
         return $this->sendResponse($quote, 'success');
+    }
+
+    public function addImage(Request $request)
+    {
+    	\Log::debug($request);
+	  	$validator = Validator::make($request->all(), [
+	        'image' => 'required|image',
+	        'image_by' => 'required',
+			'submitted_by' => 'required',
+			'channel_name' => 'required',
+	        'token' => 'required|exists:bot_servers'
+	    ]);
+	    if($validator->fails()){
+            return $this->sendError('Validation Error.', $validator->errors());       
+        }
+        $botServer = BotServer::where('token', $request->token)->first();
+        if (!$path = Storage::putFile('teams', $request->file('image'))) {
+            return $this->sendError('Upload Error.', '');       
+        }
+        $image = Image::create([
+	        'path' => $path,
+	        'image_by' => $request->image_by,
+	        'submitted_by' => $request->submitted_by,
+	        'channel_name' => $request->channel_name,
+	        'team_id' => $botServer->team_id,
+        ]);
+        return $this->sendResponse($image, 'success');
     }
 }
 		
