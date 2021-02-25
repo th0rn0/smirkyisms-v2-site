@@ -8,6 +8,8 @@ use Laravel\Jetstream\Events\TeamDeleted;
 use Laravel\Jetstream\Events\TeamUpdated;
 use Laravel\Jetstream\Team as JetstreamTeam;
 
+use App\Models\BotServer;
+
 class Team extends JetstreamTeam
 {
     use HasFactory;
@@ -41,4 +43,33 @@ class Team extends JetstreamTeam
         'updated' => TeamUpdated::class,
         'deleted' => TeamDeleted::class,
     ];
+
+    public function bot()
+    {
+        return $this->hasOne(BotServer::class);
+    }
+
+    public function addBot($guild_id)
+    {
+        if ($this->bot) {
+            // Team Already has Bot on server
+            return false;
+        }
+        if (BotServer::where('guild_id', $guild_id)->where('team_id', null)->first()) {
+            // Selected server already has a bot
+            return false;
+        }
+
+        if ($botServer = BotServer::where('guild_id', $guild_id)->Where('team_id', null)->first()) {
+            $botServer->team_id = $this->id;
+        } else {
+            $botServer = new BotServer;
+            $botServer->team_id = $this->id;
+            $botServer->guild_id = $guild_id;
+        }
+        if (!$botServer->save()) {
+            return false;
+        }
+        return true;
+    }
 }

@@ -3,6 +3,8 @@
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
 
+use App\Http\Controllers\BotController;
+
 /*
 |--------------------------------------------------------------------------
 | API Routes
@@ -17,3 +19,11 @@ use Illuminate\Support\Facades\Route;
 Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
     return $request->user();
 });
+
+
+Route::post('/bot/ack', [BotController::class, 'acknowledge']);
+Route::post('/bot/con', [BotController::class, 'confirm']);
+
+
+Route::post('/quote', [BotController::class, 'addQuote']);
+

@@ -1,13 +1,17 @@
 dev:
-	docker-compose -f docker-compose.yml up -d --build 
+	docker-compose -f docker-compose.yml up -d
 
 # Debug
 interactive:
-	docker-compose -f docker-compose.yml up --build
+	docker-compose -f docker-compose.yml up
 
 # Stop all Containers
 stop:
 	docker-compose -f docker-compose.yml stop
+
+# Build Containers
+build:
+	docker-composer -f docker-compose.yml build
 
 ###########
 # HELPERS #
