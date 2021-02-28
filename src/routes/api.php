@@ -3,9 +3,9 @@
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
 
-use App\Http\Controllers\BotController;
-use App\Http\Controllers\QuoteController;
-use App\Http\Controllers\ImageController;
+use App\Http\Controllers\Api\BotController;
+use App\Http\Controllers\Api\QuoteController;
+use App\Http\Controllers\Api\ImageController;
 
 /*
 |--------------------------------------------------------------------------
@@ -25,6 +25,7 @@ Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
 
 Route::post('/bot/ack', [BotController::class, 'acknowledge']);
 Route::post('/bot/con', [BotController::class, 'confirm']);
+Route::post('/bot/lev', [BotController::class, 'leave']);
 
 
 Route::post('/quote', [BotController::class, 'addQuote']);

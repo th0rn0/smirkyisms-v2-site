@@ -1,7 +1,11 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
+
+
 use App\Http\Controllers\SocialController;
+use App\Http\Controllers\TeamController;
+
 
 
 use LaravelRestcord\Discord;
@@ -25,18 +29,31 @@ Route::get('/', function () {
     return view('welcome');
 });
 
+
+
 Route::middleware(['auth:sanctum', 'verified', 'sessionHasDiscordToken'])->get('/dashboard', function () {
     return view('dashboard');
 })->name('dashboard');
 
-Route::middleware(['sessionHasDiscordToken'])->get('/aa/dashboards', function(Request $request) {
-        // $user = Socialite::driver('discord')->user();
-		// dd($request->session()->get('did'));
-        // $api = new ApiClient($request->session()->get('did'));
-        // $discord = new Discord($api);
-        // dd($discord->guilds());
+Route::get('/c/create', [TeamController::class, 'create'])->name('teams.create');
+Route::get('/c/{team}/settings', [TeamController::class, 'settings'])->name('teams.settings');
 
-})->name('teams.dashboard');
+
+Route::get('/c/{team}/', [TeamController::class, 'show'])->name('teams.show');
+
+
+
+
+// Route::get('/c/{team}/quotes', [TeamController::class, 'create'])->name('teams.settings');
+
+// Route::get('/c/{team}/images', [TeamController::class, 'create'])->name('teams.settings');
+
+// Route::get('/c/{team}/quotes/{quote}', [TeamController::class, 'create'])->name('teams.settings');
+
+// Route::get('/c/{team}/images/{image}', [TeamController::class, 'create'])->name('teams.settings');
+
+
+
 
 Route::get('/auth/redirect', [SocialController::class, 'discordRedirect']);
 

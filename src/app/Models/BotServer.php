@@ -21,7 +21,7 @@ class BotServer extends Model
     ];
 
 
-    public function bot()
+    public function team()
     {
         return $this->belongsTo(Team::class);
     }

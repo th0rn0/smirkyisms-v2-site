@@ -1,12 +1,12 @@
 <?php
 
-namespace App\Http\Controllers;
+namespace App\Http\Controllers\Api;
 
 use Illuminate\Http\Request;
 use Illuminate\Http\File;
 use Illuminate\Support\Facades\Storage;
 
-use App\Http\Controllers\BaseController as BaseController;
+use App\Http\Controllers\Api\BaseController as BaseController;
 
 use Validator;
 

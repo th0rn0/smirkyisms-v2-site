@@ -1,13 +1,13 @@
 <?php
 
-namespace App\Http\Livewire\Bot\Add;
+namespace App\Http\Livewire\Bot;
 
 use Livewire\Component;
 use Illuminate\Http\Request;
 
 use Auth;
 
-class Form extends Component
+class AddForm extends Component
 {
 	public $icon;
 	public $iconUrl;
@@ -15,12 +15,12 @@ class Form extends Component
 	public $guildId;
 
     protected $rules = [
-        'guildId' => 'required|unique:bot_servers,guild_id',
+        'guildId' => 'required',
     ];
 
     public function render()
     {
-        return view('livewire.bot.add.form');
+        return view('livewire.bot.add-form');
     }
 
     public function mount($server)

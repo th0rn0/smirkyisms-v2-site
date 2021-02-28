@@ -12,9 +12,12 @@ use App\Models\BotServer;
 use App\Models\Quote;
 use App\Models\Image;
 
+use Cviebrock\EloquentSluggable\Sluggable;
+
 class Team extends JetstreamTeam
 {
     use HasFactory;
+    use Sluggable;
 
     /**
      * The attributes that should be cast to native types.
@@ -33,6 +36,7 @@ class Team extends JetstreamTeam
     protected $fillable = [
         'name',
         'personal_team',
+        'slug'
     ];
 
     /**
@@ -45,6 +49,36 @@ class Team extends JetstreamTeam
         'updated' => TeamUpdated::class,
         'deleted' => TeamDeleted::class,
     ];
+
+    public function sluggable()
+    {
+        return [
+            'slug' => [
+                'source' => 'name'
+            ]
+        ];
+    }
+
+    /**
+     * Get the route key for the model.
+     *
+     * @return string
+     */
+    public function getRouteKeyName(): string
+    {
+        return 'slug';
+    }
+    
+    public static function boot() {
+        parent::boot();
+
+        static::deleting(function($team) { 
+            $team->quotes()->delete();
+            $team->images()->delete();
+            $team->bot()->delete();
+
+        });
+    }
 
     /**
      * Relationships
