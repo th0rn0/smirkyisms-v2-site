@@ -5,7 +5,8 @@ use Illuminate\Support\Facades\Route;
 
 use App\Http\Controllers\SocialController;
 use App\Http\Controllers\TeamController;
-
+use App\Http\Controllers\QuoteController;
+use App\Http\Controllers\ImageController;
 
 
 use LaravelRestcord\Discord;
@@ -35,22 +36,28 @@ Route::middleware(['auth:sanctum', 'verified', 'sessionHasDiscordToken'])->get('
     return view('dashboard');
 })->name('dashboard');
 
-Route::get('/c/create', [TeamController::class, 'create'])->name('teams.create');
-Route::get('/c/{team}/settings', [TeamController::class, 'settings'])->name('teams.settings');
+
+Route::get('/pass', function () {
+	// TODO
+	dd('TBC');
+})->name('team.password');
+
+Route::middleware(['auth:sanctum', 'verified', 'sessionHasDiscordToken'])->get('/c/create', [TeamController::class, 'create'])->name('teams.create');
+Route::middleware(['auth:sanctum', 'verified', 'sessionHasDiscordToken'])->get('/c/{team}/settings', [TeamController::class, 'settings'])->name('teams.settings');
 
 
-Route::get('/c/{team}/', [TeamController::class, 'show'])->name('teams.show');
+Route::middleware(['team.visibility'])->get('/c/{team}/', [TeamController::class, 'show'])->name('teams.show');
 
 
 
 
-// Route::get('/c/{team}/quotes', [TeamController::class, 'create'])->name('teams.settings');
+Route::middleware(['team.visibility'])->get('/c/{team}/quotes', [QuoteController::class, 'index'])->name('quotes.index');
 
-// Route::get('/c/{team}/images', [TeamController::class, 'create'])->name('teams.settings');
+Route::middleware(['team.visibility'])->get('/c/{team}/images', [ImageController::class, 'index'])->name('images.index');
 
-// Route::get('/c/{team}/quotes/{quote}', [TeamController::class, 'create'])->name('teams.settings');
+Route::middleware(['team.visibility'])->get('/c/{team}/quotes/{quote}', [QuoteController::class, 'show'])->name('quotes.show');
 
-// Route::get('/c/{team}/images/{image}', [TeamController::class, 'create'])->name('teams.settings');
+Route::middleware(['team.visibility'])->get('/c/{team}/images/{image}', [ImageController::class, 'show'])->name('images.show');
 
 
 

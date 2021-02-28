@@ -11,6 +11,7 @@ use Laravel\Jetstream\Team as JetstreamTeam;
 use App\Models\BotServer;
 use App\Models\Quote;
 use App\Models\Image;
+use App\Models\TeamVisibilityPermission;
 
 use Cviebrock\EloquentSluggable\Sluggable;
 
@@ -36,7 +37,8 @@ class Team extends JetstreamTeam
     protected $fillable = [
         'name',
         'personal_team',
-        'slug'
+        'slug',
+        'team_visibility_permissions_id',
     ];
 
     /**
@@ -96,6 +98,11 @@ class Team extends JetstreamTeam
     public function images()
     {
         return $this->hasMany(Image::class);
+    }
+
+   public function visibility()
+    {
+        return $this->belongsTo(TeamVisibilityPermission::class, 'team_visibility_permissions_id');
     }
 
     /**

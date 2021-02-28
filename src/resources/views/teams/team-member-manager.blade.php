@@ -6,11 +6,11 @@
         <div class="mt-10 sm:mt-0">
             <x-jet-form-section submit="addTeamMember">
                 <x-slot name="title">
-                    {{ __('Add Team Member') }}
+                    {{ __('Add Community Member') }}
                 </x-slot>
 
                 <x-slot name="description">
-                    {{ __('Add a new team member to your team, allowing them to collaborate with you.') }}
+                    {{ __('Add a new team member to your community, allowing them to administrate with you.') }}
                 </x-slot>
 
                 <x-slot name="form">
