@@ -30,6 +30,15 @@ Route::get('/', function () {
     return view('welcome');
 });
 
+Route::get('/how-it-works', function () {
+	// TODO
+	dd('TBC');
+})->name('howitworks');
+
+Route::get('/about', function () {
+	// TODO
+	dd('TBC');
+})->name('about');
 
 
 Route::middleware(['auth:sanctum', 'verified', 'sessionHasDiscordToken'])->get('/dashboard', function () {
@@ -62,6 +71,6 @@ Route::middleware(['team.visibility'])->get('/c/{team}/images/{image}', [ImageCo
 
 
 
-Route::get('/auth/redirect', [SocialController::class, 'discordRedirect']);
+Route::get('/auth/redirect', [SocialController::class, 'discordRedirect'])->name('auth.redirect');
 
 Route::middleware(['sessionHasDiscordToken'])->get('/auth/callback', [SocialController::class, 'loginWithDiscord']);
