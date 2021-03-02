@@ -22,6 +22,8 @@ class ImageController extends BaseController
 	}
 	public function getRandom()
 	{
+		// TO DO go through team
+		dd('asdasd');
 		return Image::inRandomOrder()->first();
 	}
 }

@@ -133,4 +133,29 @@ class Team extends JetstreamTeam
         }
         return true;
     }
+
+    public function getRandomItem($type = 'all')
+    {
+        switch ($type) {
+            case 'quote':
+                $item = Quote::where('team_id', $this->id)->inRandomOrder()->first();
+                break;
+            case 'image':
+                $item = Image::where('team_id', $this->id)->inRandomOrder()->first();
+                break;
+            default:
+                $rand = rand(0,1);
+                switch ($rand) {
+                    case 0:
+                        $item = Quote::where('team_id', $this->id)->inRandomOrder()->first();
+                        break;
+                    default:
+                        $item = Image::where('team_id', $this->id)->inRandomOrder()->first();
+                        # code...
+                        break;
+                }
+                break;
+        }
+        return $item;
+    }
 }

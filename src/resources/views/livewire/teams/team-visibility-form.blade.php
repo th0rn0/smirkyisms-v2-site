@@ -9,11 +9,9 @@
     </x-slot>
 
     <x-slot name="form">
-        <!-- Team Name -->
         <div class="col-span-6 sm:col-span-4">
             <div class="relative z-0 mt-1 border border-gray-200 rounded-lg cursor-pointer">
             	@foreach ($visiblityPermissions as $index => $visiblityPermission)
-	            	<!-- FULL -->
 	                <button type="button" class="relative px-4 py-3 inline-flex w-full rounded-lg focus:z-10 focus:outline-none focus:border-blue-300 focus:shadow-outline-blue {{ $index > 0 ? 'border-t border-gray-200 rounded-t-none' : '' }} {{ ! $loop->last ? 'rounded-b-none' : '' }}"
 	                                wire:click="$set('addTeamMemberForm.role', '')">
 	                    <div class="{{ $visiblityPermission->id != $team->team_visibility_permissions_id ? 'opacity-50' : '' }}">

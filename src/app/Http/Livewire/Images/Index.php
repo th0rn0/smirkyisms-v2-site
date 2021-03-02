@@ -9,14 +9,15 @@ use App\Models\Team;
 class Index extends Component
 {
 	public $images;
+	public $limit;
 
     public function render()
     {
         return view('livewire.images.index');
     }
 
-    public function mount(Team $team)
+    public function mount(Team $team, $limit = 5)
     {
-    	$this->images = $team->images;
+    	$this->images = $team->images()->limit($limit)->get();
     }
 }

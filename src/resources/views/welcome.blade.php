@@ -20,563 +20,254 @@
     <meta property="og:image:type" content="image/png" />
 
     <meta property="og:url" content="https://tailwindcomponents.com/component/landing-page-with-tailwind-css-2/landing" />
-    <meta property="og:title" content="Landing Page with Tailwind CSS 2 by mithicher" />
-    <meta property="og:description" content="Inspired from a dribble shot by https://dribbble.com/shots/8807920-Quickpay-Hero-section/attachments/1015863?mode=media &amp;bull; https://codepen.io/mithicher/pen/JjorVyb" />
+    <meta property="og:title" content="Smirkyisms By Th0rn0" />
+    <meta property="og:description" content="Inspired by Rickyisms from Trailer Park Boys." />
 
     <meta name="twitter:card" content="summary_large_image" />
-    <meta name="twitter:site" content="@TwComponents" />
-    <meta name="twitter:title" content="Landing Page with Tailwind CSS 2 by mithicher" />
-    <meta name="twitter:description" content="Inspired from a dribble shot by https://dribbble.com/shots/8807920-Quickpay-Hero-section/attachments/1015863?mode=media &amp;bull; https://codepen.io/mithicher/pen/JjorVyb" />
+    <meta name="twitter:site" content="@th0rn0" />
+    <meta name="twitter:title" content="Smirkyisms By Th0rn0" />
+    <meta name="twitter:description" content="Inspired by Rickyisms from Trailer Park Boys." />
     <meta name="twitter:image" content="https://tailwindcomponents.com/storage/917/conversions/temp66505-ogimage.jpg?v=2021-03-01 00:16:06" />
 
     <title>Smirkyisms</title>
-
-    <link rel="stylesheet" href="https://unpkg.com/tailwindcss@1.0.4/dist/tailwind.min.css">
+    {{-- <link rel="stylesheet" href="https://unpkg.com/tailwindcss@1.0.4/dist/tailwind.min.css"> --}}
+    <link rel="stylesheet" href="{{ mix('css/app.css') }}">
 </head>
 <body class="bg-gray-200">
-<div>
-    <div class="bg-indigo-900 px-4 py-4">
-      <div
-        class="md:max-w-6xl md:mx-auto md:flex md:items-center md:justify-between"
-      >
-        <div class="flex justify-between items-center">
-          <a href="#" class="inline-block py-2 text-white text-xl font-bold"
-            >Smirkyisms</a
-          >
-          <div
-            class="inline-block cursor-pointer md:hidden">
-            <div class="bg-gray-400 w-8 mb-2" style="height: 2px;"></div>
-            <div class="bg-gray-400 w-8 mb-2" style="height: 2px;"></div>
-            <div class="bg-gray-400 w-8" style="height: 2px;"></div>
-          </div>
-        </div>
-        
-        <div>
-          <div class="hidden md:block">
-            <a
-              href="{{ route('howitworks') }}"
-              class="inline-block py-1 md:py-4 text-gray-100 mr-6 font-bold"
-              >How it Works</a
-            >
-            <a
-              href="{{ route('about') }}"
-              class="inline-block py-1 md:py-4 text-gray-500 hover:text-gray-100 mr-6"
-              >About</a
-            >
-          </div>
-        </div>
-        <div class="hidden md:block">
-          <a
-            href="{{ route('auth.redirect') }}"
-            class="inline-block py-1 md:py-4 text-gray-500 hover:text-gray-100 mr-6"
-            >Login</a
-          >
-          <a
-            href="{{ route('auth.redirect') }}"
-            class="inline-block py-2 px-4 text-gray-700 bg-white hover:bg-gray-100 rounded-lg"
-            >Sign Up</a
-          >
-        </div>
-      </div>
-    </div>
+  <div>
+    <div class="relative bg-gray overflow-hidden">
+      <div class="max-w-7xl mx-auto">
 
-    <div class="bg-indigo-900 md:overflow-hidden">
-      <div class="px-4 py-20 md:py-4">
-        <div class="md:max-w-6xl md:mx-auto">
-          <div class="md:flex md:flex-wrap">
-            <div class="md:w-1/2 text-center md:text-left md:pt-16">
-              <h1
-                class="font-bold text-white text-2xl md:text-5xl leading-tight mb-4"
-              >
-                Community Curated Scrap Books
+
+        <div class="relative z-10 pb-8 bg-gray sm:pb-16 md:pb-20 lg:max-w-2xl lg:w-full lg:pb-28 xl:pb-32">
+         {{--  <svg class="hidden lg:block absolute right-0 inset-y-0 h-full w-48 text-white transform translate-x-1/2" fill="currentColor" viewBox="0 0 100 100" preserveAspectRatio="none" aria-hidden="true">
+            <polygon points="50,0 100,0 50,100 0,100" />
+          </svg>
+ --}}
+
+          <div class="relative pt-6 px-4 sm:px-6 lg:px-8">
+            <nav class="relative flex items-center justify-between sm:h-10 lg:justify-start" aria-label="Global">
+              <div class="flex items-center flex-grow flex-shrink-0 lg:flex-grow-0">
+                <div class="flex items-center justify-between w-full md:w-auto">
+                  <a href="/">
+                    <span class="sr-only">Workflow</span>
+                    <h1 class="font-bold text-xl text-gray-500 hover:text-gray-900">Smirkyisms</h1>
+                  </a>
+                  <div class="-mr-2 flex items-center md:hidden">
+                    <button type="button" class="bg-white rounded-md p-2 inline-flex items-center justify-center text-gray-400 hover:text-gray-500 hover:bg-gray-100 focus:outline-none focus:ring-2 focus:ring-inset focus:ring-indigo-500" aria-expanded="false">
+                      <span class="sr-only">Open main menu</span>
+                      <!-- Heroicon name: outline/menu -->
+                      <svg class="h-6 w-6" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" aria-hidden="true">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16" />
+                      </svg>
+                    </button>
+                  </div>
+                </div>
+              </div>
+              <div class="hidden md:block md:ml-10 md:pr-4 md:space-x-8 push-right">
+                <a href="#howitworks" class="font-medium text-gray-500 hover:text-gray-900">How it Works</a>
+
+                <a href="#about" class="font-medium text-gray-500 hover:text-gray-900">About</a>
+                @if (!Auth::user())
+                  <a href="{{ route('auth.redirect') }}" class="font-medium text-indigo-600 hover:text-indigo-500">Log in</a>
+                @else
+                  <a href="{{ route('dashboard') }}" class="font-medium text-indigo-600 hover:text-indigo-500">Dashboard</a>
+                @endif
+              </div>
+            </nav>
+          </div>
+
+          <!--
+            Mobile menu, show/hide based on menu open state.
+
+            Entering: "duration-150 ease-out"
+              From: "opacity-0 scale-95"
+              To: "opacity-100 scale-100"
+            Leaving: "duration-100 ease-in"
+              From: "opacity-100 scale-100"
+              To: "opacity-0 scale-95"
+          -->
+          <div class="absolute top-0 inset-x-0 p-2 transition transform origin-top-right md:hidden">
+            <div class="rounded-lg shadow-md bg-white ring-1 ring-black ring-opacity-5 overflow-hidden">
+              <div class="px-5 pt-4 flex items-center justify-between">
+                <div>
+                  <img class="h-8 w-auto" src="https://tailwindui.com/img/logos/workflow-mark-indigo-600.svg" alt="">
+                </div>
+                <div class="-mr-2">
+                  <button type="button" class="bg-white rounded-md p-2 inline-flex items-center justify-center text-gray-400 hover:text-gray-500 hover:bg-gray-100 focus:outline-none focus:ring-2 focus:ring-inset focus:ring-indigo-500">
+                    <span class="sr-only">Close main menu</span>
+                    <!-- Heroicon name: outline/x -->
+                    <svg class="h-6 w-6" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" aria-hidden="true">
+                      <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12" />
+                    </svg>
+                  </button>
+                </div>
+              </div>
+              <div class="px-2 pt-2 pb-3 space-y-1">
+                <a href="#howitworks" class="block px-3 py-2 rounded-md text-base font-medium text-gray-700 hover:text-gray-900 hover:bg-gray-50">How it Works</a>
+
+                <a href="#about" class="block px-3 py-2 rounded-md text-base font-medium text-gray-700 hover:text-gray-900 hover:bg-gray-50">About</a>
+              </div>
+              @if (!Auth::user())
+                <a href="{{ route('auth.redirect') }}" class="block w-full px-5 py-3 text-center font-medium text-indigo-600 bg-gray-50 hover:bg-gray-100">
+                  Log in
+                </a>
+              @else
+                <a href="{{ route('dashboard') }}" class="block w-full px-5 py-3 text-center font-medium text-indigo-600 bg-gray-50 hover:bg-gray-100">
+                  Dashboard
+                </a>
+              @endif
+            </div>
+          </div>
+
+          <main class="mt-10 mx-auto max-w-7xl px-4 sm:mt-12 sm:px-6 md:mt-16 lg:mt-20 lg:px-8 xl:mt-28">
+            <div class="sm:text-center lg:text-left">
+              <h1 class="text-4xl tracking-tight font-extrabold text-gray-900 sm:text-5xl md:text-6xl">
+                <span class="block xl:inline">Community Curated</span>
+                <span class="block text-indigo-600 xl:inline">Scrap Books</span>
               </h1>
-
-              <p class="text-indigo-200 md:text-xl md:pr-48">
+              <p class="mt-3 text-base text-gray-500 sm:mt-5 sm:text-lg sm:max-w-xl sm:mx-auto md:mt-5 md:text-xl lg:mx-0">
                 Save, Share and Laugh at all your Discord Community's memes <strong>forever!</strong>
               </p>
-
-              <a
-                href="{{ route('auth.redirect') }}"
-                class="mt-6 mb-12 md:mb-0 md:mt-10 inline-block py-3 px-8 text-white bg-red-500 hover:bg-red-600 rounded-lg shadow"
-                >Add to Discord</a
-              >
-               <a
-                href="{{ route('auth.redirect') }}"
-                class="mt-6 mb-12 md:mb-0 md:mt-10 inline-block py-3 px-8 text-white bg-red-500 hover:bg-red-600 rounded-lg shadow"
-                >Features</a
-              >
-            </div>
-            <div class="md:w-1/2 relative">
-              <div class="hidden md:block">
-                <div
-                  class="-ml-24 -mb-40 absolute left-0 bottom-0 w-40 bg-white rounded-lg shadow-lg px-6 py-8"
-                  style="transform: rotate(-8deg);"
-                >
-                  <div
-                    class="bg-indigo-800 mx-auto rounded-lg px-2 pb-2 relative mb-8"
-                  >
-                    <div class="mb-1">
-                      <span
-                        class="w-1 h-1 bg-indigo-100 rounded-full inline-block"
-                        style="margin-right: 1px;"
-                      ></span
-                      ><span
-                        class="w-1 h-1 bg-indigo-100 rounded-full inline-block"
-                        style="margin-right: 1px;"
-                      ></span
-                      ><span
-                        class="w-1 h-1 bg-indigo-100 rounded-full inline-block"
-                      ></span>
-                    </div>
-                    <div class="h-1 w-12 bg-indigo-100 rounded mb-1"></div>
-                    <div class="h-1 w-10 bg-indigo-100 rounded mb-2"></div>
-
-                    <div class="flex">
-                      <div class="w-6 h-3 rounded bg-indigo-100 mr-1"></div>
-                      <div class="w-6 h-3 rounded bg-indigo-100"></div>
-                    </div>
-
-                    <div
-                      class="-mr-2 -mb-4 absolute bottom-0 right-0 h-16 w-10 rounded-lg bg-green-700 border-2 border-white"
-                    ></div>
-                    <div
-                      class="w-2 h-2 rounded-full bg-green-800 mx-auto absolute bottom-0 right-0 mr-2 -mb-2 z-10 border-2 border-white"
-                    ></div>
-                  </div>
-
-                  <div class="text-gray-800 text-center">
-                    Quotes
-                  </div>
-                </div>
-
-                <div
-                  class="ml-24 mb-16 absolute left-0 bottom-0 w-40 bg-white rounded-lg shadow-lg px-6 py-8"
-                  style="transform: rotate(-8deg); z-index: 2;"
-                >
-                  <div
-                    class="bg-indigo-800 mx-auto rounded-lg relative mb-8 py-2 w-20 border-2 border-white"
-                  >
-                    <div
-                      class="h-8 bg-green-700 w-8 rounded absolute left-0 top-0 -mt-3 ml-4"
-                      style="transform: rotate(-45deg); z-index: -1;"
-                    ></div>
-                    <div
-                      class="h-8 bg-green-800 w-8 rounded absolute left-0 top-0 -mt-3 ml-8"
-                      style="transform: rotate(-12deg); z-index: -2;"
-                    ></div>
-
-                    <div
-                      class="flex items-center justify-center h-6 bg-indigo-800 w-6 rounded-l-lg ml-auto border-4 border-white -mr-1"
-                    >
-                      <div
-                        class="h-2 w-2 rounded-full bg-indigo-800 border-2 border-white"
-                      ></div>
-                    </div>
-
-                    <div
-                      class="w-8 h-8 bg-green-700 border-4 border-white rounded-full -ml-3 -mb-5"
-                    ></div>
-                  </div>
-
-                  <div class="text-gray-800 text-center">
-                    Images
-                  </div>
-                </div>
-
-                <div
-                  class="ml-32 absolute left-0 bottom-0 w-48 bg-white rounded-lg shadow-lg px-10 py-8"
-                  style="transform: rotate(-8deg); z-index: 2; margin-bottom: -220px;"
-                >
-                  <div
-                    class="bg-indigo-800 mx-auto rounded-lg pt-4 mb-16 relative"
-                  >
-                    <div class="h-4 bg-white"></div>
-
-                    <div class="text-right my-2 pb-1">
-                      <div
-                        class="inline-flex w-3 h-3 rounded-full bg-white -mr-2"
-                      ></div>
-                      <div
-                        class="inline-flex w-3 h-3 rounded-full bg-indigo-800 border-2 border-white mr-2"
-                      ></div>
-                    </div>
-
-                    <div
-                      class="-ml-4 -mb-6 absolute left-0 bottom-0 w-16 bg-green-700 mx-auto rounded-lg pb-2 pt-3"
-                    >
-                      <div class="h-2 bg-white mb-2"></div>
-                      <div class="h-2 bg-white w-6 ml-auto rounded mr-2"></div>
-                    </div>
-                  </div>
-
-                  <div class="text-gray-800 text-center">
-                    Memes
-                  </div>
-                </div>
-
-                <div
-                  class="mt-10 w-full absolute right-0 top-0 flex rounded-lg bg-white overflow-hidden shadow-lg"
-                  style="transform: rotate(-8deg); margin-right: -250px; z-index: 1;"
-                >
-                  <div class="w-32 bg-gray-200" style="height: 560px;"></div>
-                  <div class="flex-1 p-6">
-                    <h2 class="text-lg text-gray-700 font-bold mb-3">
-                      Community Quotes
-                    </h2>
-                    <div class="flex mb-5">
-                      <div class="w-16 rounded-full bg-gray-100 py-2 px-4 mr-2">
-                        <div class="p-1 rounded-full bg-gray-300"></div>
-                      </div>
-                      <div class="w-16 rounded-full bg-gray-100 py-2 px-4 mr-2">
-                        <div class="p-1 rounded-full bg-gray-300"></div>
-                      </div>
-                      <div class="w-16 rounded-full bg-gray-100 py-2 px-4 mr-2">
-                        <div class="p-1 rounded-full bg-gray-300"></div>
-                      </div>
-                      <div class="w-16 rounded-full bg-gray-100 py-2 px-4">
-                        <div class="p-1 rounded-full bg-gray-300"></div>
-                      </div>
-                    </div>
-
-                    <div class="flex flex-wrap -mx-4 mb-5">
-                      <div class="w-1/3 px-4">
-                        <div class="h-40 rounded-lg bg-white shadow-lg p-6">
-                          <div
-                            class="w-16 h-16 rounded-full bg-gray-200 mb-6"
-                          ></div>
-                          <div
-                            class="h-2 w-16 bg-gray-200 mb-2 rounded-full"
-                          ></div>
-                          <div class="h-2 w-10 bg-gray-200 rounded-full"></div>
-                        </div>
-                      </div>
-                      <div class="w-1/3 px-4">
-                        <div class="h-40 rounded-lg bg-white shadow-lg p-6">
-                          <div
-                            class="w-16 h-16 rounded-full bg-gray-200 mb-6"
-                          ></div>
-                          <div
-                            class="h-2 w-16 bg-gray-200 mb-2 rounded-full"
-                          ></div>
-                          <div class="h-2 w-10 bg-gray-200 rounded-full"></div>
-                        </div>
-                      </div>
-                      <div class="w-1/3 px-4">
-                        <div class="h-40 rounded-lg bg-white shadow-lg p-6">
-                          <div
-                            class="w-16 h-16 rounded-full bg-gray-200 mb-6"
-                          ></div>
-                          <div
-                            class="h-2 w-16 bg-gray-200 mb-2 rounded-full"
-                          ></div>
-                          <div class="h-2 w-10 bg-gray-200 rounded-full"></div>
-                        </div>
-                      </div>
-                    </div>
-
-                    <h2 class="text-lg text-gray-700 font-bold mb-3">
-                      Community Images
-                    </h2>
-
-                    <div
-                      class="w-full flex flex-wrap justify-between items-center border-b-2 border-gray-100 py-3"
-                    >
-                      <div class="w-1/3">
-                        <div class="flex">
-                          <div class="h-8 w-8 rounded bg-gray-200 mr-4"></div>
-                          <div>
-                            <div
-                              class="h-2 w-16 bg-gray-200 mb-1 rounded-full"
-                            ></div>
-                            <div
-                              class="h-2 w-10 bg-gray-100 rounded-full"
-                            ></div>
-                          </div>
-                        </div>
-                      </div>
-                      <div class="w-1/3">
-                        <div
-                          class="w-16 rounded-full bg-green-100 py-2 px-4 mx-auto"
-                        >
-                          <div class="p-1 rounded-full bg-green-200"></div>
-                        </div>
-                      </div>
-                      <div class="w-1/3">
-                        <div
-                          class="h-2 w-10 bg-gray-100 rounded-full mx-auto"
-                        ></div>
-                      </div>
-                    </div>
-
-                    <div
-                      class="flex flex-wrap justify-between items-center border-b-2 border-gray-100 py-3"
-                    >
-                      <div class="w-1/3">
-                        <div class="flex">
-                          <div class="h-8 w-8 rounded bg-gray-200 mr-4"></div>
-                          <div>
-                            <div
-                              class="h-2 w-16 bg-gray-200 mb-1 rounded-full"
-                            ></div>
-                            <div
-                              class="h-2 w-10 bg-gray-100 rounded-full"
-                            ></div>
-                          </div>
-                        </div>
-                      </div>
-                      <div class="w-1/3">
-                        <div
-                          class="w-16 rounded-full bg-orange-100 py-2 px-4 mx-auto"
-                        >
-                          <div class="p-1 rounded-full bg-orange-200"></div>
-                        </div>
-                      </div>
-                      <div class="w-1/3">
-                        <div
-                          class="h-2 w-16 bg-gray-100 rounded-full mx-auto"
-                        ></div>
-                      </div>
-                    </div>
-
-                    <div
-                      class="flex flex-wrap justify-between items-center border-b-2 border-gray-100 py-3"
-                    >
-                      <div class="w-1/3">
-                        <div class="flex">
-                          <div class="h-8 w-8 rounded bg-gray-200 mr-4"></div>
-                          <div>
-                            <div
-                              class="h-2 w-16 bg-gray-200 mb-1 rounded-full"
-                            ></div>
-                            <div
-                              class="h-2 w-10 bg-gray-100 rounded-full"
-                            ></div>
-                          </div>
-                        </div>
-                      </div>
-                      <div class="w-1/3">
-                        <div
-                          class="w-16 rounded-full bg-blue-100 py-2 px-4 mx-auto"
-                        >
-                          <div class="p-1 rounded-full bg-blue-200"></div>
-                        </div>
-                      </div>
-                      <div class="w-1/3">
-                        <div
-                          class="h-2 w-8 bg-gray-100 rounded-full mx-auto"
-                        ></div>
-                      </div>
-                    </div>
-                  </div>
-                </div>
-
-                <div
-                  class="w-full absolute left-0 bottom-0 ml-1"
-                  style="transform: rotate(-8deg); z-index: 1; margin-bottom: -360px;"
-                >
-                  <div class="grid--gray h-48 w-48"></div>
-                </div>
-              </div>
-
-              <div
-                class="md:hidden w-full absolute right-0 top-0 flex rounded-lg bg-white overflow-hidden shadow"
-              >
-                <div
-                  class="h-4 bg-gray-200 absolute top-0 left-0 right-0 rounded-t-lg flex items-center"
-                >
-                  <span
-                    class="h-2 w-2 rounded-full bg-red-500 inline-block mr-1 ml-2"
-                  ></span>
-                  <span
-                    class="h-2 w-2 rounded-full bg-orange-400 inline-block mr-1"
-                  ></span>
-                  <span
-                    class="h-2 w-2 rounded-full bg-green-500 inline-block mr-1"
-                  ></span>
-                </div>
-                <div class="w-32 bg-gray-100 px-2 py-8" style="height: 340px;">
-                  <div class="h-2 w-16 bg-gray-300 rounded-full mb-4"></div>
-                  <div class="flex items-center mb-4">
-                    <div
-                      class="h-5 w-5 rounded-full bg-gray-300 mr-3 flex-shrink-0"
-                    ></div>
-                    <div>
-                      <div class="h-2 w-10 bg-gray-300 rounded-full"></div>
-                    </div>
-                  </div>
-
-                  <div class="h-2 w-16 bg-gray-200 rounded-full mb-2"></div>
-                  <div class="h-2 w-10 bg-gray-200 rounded-full mb-2"></div>
-                  <div class="h-2 w-20 bg-gray-200 rounded-full mb-2"></div>
-                  <div class="h-2 w-6 bg-gray-200 rounded-full mb-2"></div>
-                  <div class="h-2 w-16 bg-gray-200 rounded-full mb-2"></div>
-                  <div class="h-2 w-10 bg-gray-200 rounded-full mb-2"></div>
-                  <div class="h-2 w-20 bg-gray-200 rounded-full mb-2"></div>
-                  <div class="h-2 w-6 bg-gray-200 rounded-full mb-2"></div>
-                </div>
-                <div class="flex-1 px-4 py-8">
-                  <h2 class="text-xs text-gray-700 font-bold mb-1">
-                    Popular Payments
-                  </h2>
-                  <div class="flex mb-5">
-                    <div class="p-2 w-12 rounded-full bg-gray-100 mr-2"></div>
-                    <div class="p-2 w-12 rounded-full bg-gray-100 mr-2"></div>
-                    <div class="p-2 w-12 rounded-full bg-gray-100 mr-2"></div>
-                    <div class="p-2 w-12 rounded-full bg-gray-100 mr-2"></div>
-                  </div>
-
-                  <div class="flex flex-wrap -mx-2 mb-5">
-                    <div class="w-1/3 px-2">
-                      <div class="p-3 rounded-lg bg-white shadow">
-                        <div
-                          class="w-6 h-6 rounded-full bg-gray-200 mb-2"
-                        ></div>
-                        <div
-                          class="h-2 w-10 bg-gray-200 mb-1 rounded-full"
-                        ></div>
-                        <div class="h-2 w-6 bg-gray-200 rounded-full"></div>
-                      </div>
-                    </div>
-                    <div class="w-1/3 px-2">
-                      <div class="p-3 rounded-lg bg-white shadow">
-                        <div
-                          class="w-6 h-6 rounded-full bg-gray-200 mb-2"
-                        ></div>
-                        <div
-                          class="h-2 w-10 bg-gray-200 mb-1 rounded-full"
-                        ></div>
-                        <div class="h-2 w-6 bg-gray-200 rounded-full"></div>
-                      </div>
-                    </div>
-                    <div class="w-1/3 px-2">
-                      <div class="p-3 rounded-lg bg-white shadow">
-                        <div
-                          class="w-6 h-6 rounded-full bg-gray-200 mb-2"
-                        ></div>
-                        <div
-                          class="h-2 w-10 bg-gray-200 mb-1 rounded-full"
-                        ></div>
-                        <div class="h-2 w-6 bg-gray-200 rounded-full"></div>
-                      </div>
-                    </div>
-                  </div>
-
-                  <h2 class="text-xs text-gray-700 font-bold mb-1">
-                    Popular Payments
-                  </h2>
-
-                  <div
-                    class="w-full flex flex-wrap justify-between items-center border-b-2 border-gray-100 py-3"
-                  >
-                    <div class="w-1/3">
-                      <div class="flex">
-                        <div
-                          class="h-5 w-5 rounded-full bg-gray-200 mr-3 flex-shrink-0"
-                        ></div>
-                        <div>
-                          <div
-                            class="h-2 w-16 bg-gray-200 mb-1 rounded-full"
-                          ></div>
-                          <div class="h-2 w-10 bg-gray-100 rounded-full"></div>
-                        </div>
-                      </div>
-                    </div>
-                    <div class="w-1/3">
-                      <div
-                        class="w-16 rounded-full bg-green-100 py-2 px-4 mx-auto"
-                      >
-                        <div class="p-1 rounded-full bg-green-200"></div>
-                      </div>
-                    </div>
-                    <div class="w-1/3">
-                      <div
-                        class="h-2 w-10 bg-gray-100 rounded-full mx-auto"
-                      ></div>
-                    </div>
-                  </div>
-
-                  <div class="flex flex-wrap justify-between items-center py-3">
-                    <div class="w-1/3">
-                      <div class="flex">
-                        <div
-                          class="h-5 w-5 rounded-full bg-gray-200 mr-3 flex-shrink-0"
-                        ></div>
-                        <div>
-                          <div
-                            class="h-2 w-16 bg-gray-200 mb-1 rounded-full"
-                          ></div>
-                          <div class="h-2 w-10 bg-gray-100 rounded-full"></div>
-                        </div>
-                      </div>
-                    </div>
-                    <div class="w-1/3">
-                      <div
-                        class="w-16 rounded-full bg-orange-100 py-2 px-4 mx-auto"
-                      >
-                        <div class="p-1 rounded-full bg-orange-200"></div>
-                      </div>
-                    </div>
-                    <div class="w-1/3">
-                      <div
-                        class="h-2 w-16 bg-gray-100 rounded-full mx-auto"
-                      ></div>
-                    </div>
-                  </div>
-                </div>
-              </div>
-
-              <div
-                class="mr-3 md:hidden absolute right-0 bottom-0 w-40 bg-white rounded-lg shadow-lg px-10 py-6"
-                style="z-index: 2; margin-bottom: -380px;"
-              >
-                <div
-                  class="bg-indigo-800 mx-auto rounded-lg w-20 pt-3 mb-12 relative"
-                >
-                  <div class="h-3 bg-white"></div>
-
-                  <div class="text-right my-2">
-                    <div
-                      class="inline-flex w-3 h-3 rounded-full bg-white -mr-2"
-                    ></div>
-                    <div
-                      class="inline-flex w-3 h-3 rounded-full bg-indigo-800 border-2 border-white mr-2"
-                    ></div>
-                  </div>
-
-                  <div
-                    class="-ml-4 -mb-6 absolute left-0 bottom-0 w-16 bg-green-700 mx-auto rounded-lg pb-2 pt-3"
-                  >
-                    <div class="h-2 bg-white mb-2"></div>
-                    <div class="h-2 bg-white w-6 ml-auto rounded mr-2"></div>
-                  </div>
-                </div>
-
-                <div class="text-gray-800 text-center text-sm">
-                  Payment for <br />Internet
+              <div class="mt-5 sm:mt-8 sm:flex sm:justify-center lg:justify-start">
+                <div class="rounded-md shadow">
+                  <a href="{{ route('auth.redirect') }}" class="w-full flex items-center justify-center px-8 py-3 border border-transparent text-base font-medium rounded-md text-white bg-indigo-600 hover:bg-indigo-700 md:py-4 md:text-lg md:px-10">
+                    Get started
+                  </a>
                 </div>
               </div>
             </div>
-          </div>
+          </main>
         </div>
       </div>
-      <svg
-        class="fill-current text-white hidden md:block"
-        xmlns="http://www.w3.org/2000/svg"
-        viewBox="0 0 1440 320"
-      >
-        <path fill-opacity="1" d="M0,224L1440,32L1440,320L0,320Z"></path>
-      </svg>
+     {{--  <div class="lg:absolute lg:inset-y-0 lg:right-0 lg:w-1/2">
+        <img class="h-56 w-full object-cover sm:h-72 md:h-96 lg:w-full lg:h-full" src="/images/honor.jpg" alt="">
+      </div> --}}
     </div>
 
-    <p class="text-center p-4 text-gray-600 pt-10">
-      Created by
-      <a
-        class="border-b text-blue-500"
-        href="https://twitter.com/mithicher"
-        target="_blank"
-        >@Th0rn0</a
-      >. Built with Vodka and Hatred.
-</p>
-</div>
+    <div class="py-12 bg-gray-600">
+      <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div class="lg:text-center">
+          <p class="mt-2 text-3xl leading-8 font-extrabold tracking-tight text-indigo-400 sm:text-4xl">
+            Live, Laugh, LOL.
+          </p>
+          <p class="mt-4 max-w-2xl text-xl text-gray-300 lg:mx-auto">
+            Upload, Save and Share Images and Quotes from you Discord Server. Have a scrapbook of funny moments on your Discord Server.
+          </p>
+        </div>
+
+        <div class="mt-10">
+          <dl class="space-y-10 md:space-y-0 md:grid md:grid-cols-2 md:gap-x-8 md:gap-y-10">
+            <div class="flex">
+              <div class="flex-shrink-0">
+                <div class="flex items-center justify-center h-12 w-12 rounded-md bg-indigo-400 text-white">    
+                  <!-- Heroicon name: outline/globe-alt -->
+                  <svg class="h-6 w-6" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" aria-hidden="true">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 12a9 9 0 01-9 9m9-9a9 9 0 00-9-9m9 9H3m9 9a9 9 0 01-9-9m9 9c1.657 0 3-4.03 3-9s-1.343-9-3-9m0 18c-1.657 0-3-4.03-3-9s1.343-9 3-9m-9 9a9 9 0 019-9" />
+                  </svg>
+                </div>
+              </div>
+              <div class="ml-4">
+                <dt class="text-lg leading-6 font-medium text-gray-300">
+                  Discord Bot
+                </dt>
+                <dd class="mt-2 text-base text-gray-300">
+                  The {{ config('app.name') }} Bot allows you to Upload Images & Quotes directly to your Community Scrapbook. You can also call ask it to get a random Image, Quote or Both for a quick laugh.
+                </dd>
+              </div>
+            </div>
+
+            <div class="flex">
+              <div class="flex-shrink-0">
+                <div class="flex items-center justify-center h-12 w-12 rounded-md bg-indigo-400 text-white">
+                  <!-- Heroicon name: outline/scale -->
+                  <svg class="h-6 w-6" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" aria-hidden="true">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 6l3 1m0 0l-3 9a5.002 5.002 0 006.001 0M6 7l3 9M6 7l6-2m6 2l3-1m-3 1l-3 9a5.002 5.002 0 006.001 0M18 7l3 9m-3-9l-6-2m0-2v2m0 16V5m0 16H9m3 0h3" />
+                  </svg>
+                </div>
+              </div>
+              <div class="ml-4">
+                <dt class="text-lg leading-6 font-medium text-gray-300">
+                  Images & Text
+                </dt>
+                <dd class="mt-2 text-base text-gray-300">
+                  Multi Message and JPG, JPEG, PNG, BMP, GIF, SVG, WEBP Supported.
+                </dd>
+              </div>
+            </div>
+
+            <div class="flex">
+              <div class="flex-shrink-0">
+                <div class="flex items-center justify-center h-12 w-12 rounded-md bg-indigo-400 text-white">
+                  <!-- Heroicon name: outline/lightning-bolt -->
+                  <svg class="h-6 w-6" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" aria-hidden="true">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 10V3L4 14h7v7l9-11h-7z" />
+                  </svg>
+                </div>
+              </div>
+              <div class="ml-4">
+                <dt class="text-lg leading-6 font-medium text-gray-300">
+                  Privacy Settings
+                </dt>
+                <dd class="mt-2 text-base text-gray-300">
+                  Full control over who can and who cannot see your Scrapbook incase there is private stuff on there. Full Access, Password Protected, Community or fully Private.
+                </dd>
+              </div>
+            </div>
+
+            <div class="flex">
+              <div class="flex-shrink-0">
+                <div class="flex items-center justify-center h-12 w-12 rounded-md bg-indigo-400 text-white">
+                  <!-- Heroicon name: outline/annotation -->
+                  <svg class="h-6 w-6" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" aria-hidden="true">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M7 8h10M7 12h4m1 8l-4-4H5a2 2 0 01-2-2V6a2 2 0 012-2h14a2 2 0 012 2v8a2 2 0 01-2 2h-3l-4 4z" />
+                  </svg>
+                </div>
+              </div>
+              <div class="ml-4">
+                <dt class="text-lg leading-6 font-medium text-gray-300">
+                  Discord Login
+                </dt>
+                <dd class="mt-2 text-base text-gray-300">
+                  Full OAuth With Discord. No need to make new accounts. Just sign in with your Discord account!
+                </dd>
+              </div>
+            </div>
+          </dl>
+        </div>
+      </div>
+    </div>
+    <div class="py-12 bg-white">
+      <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div class="lg:text-center">
+          <h2 class="text-base text-indigo-600 font-semibold tracking-wide uppercase"><a name="about">About</a></h2>
+          <p class="mt-4 max-w-12xl text-base text-gray-500 lg:mx-auto">
+            {{ config('app.name') }}, inspired by Rickyisms from Trailer Park Boys and our friend Smirky, start as a bot for my gaming community. We wanted a way to save funny quotes, memes and images in a place where we could pull from it for good memories, like a Scrap Book. From there I had interest and decided to open to more people. So here we are.
+          </p>
+        </div>
+      </div>
+    </div>
+    <div class="py-12 bg-gray-600">
+      <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div class="lg:text-center">
+          <h2 class="text-base text-indigo-400 font-semibold tracking-wide uppercase"><a name="howitworks">How it Works</a></h2>
+          <p class="mt-4 max-w-12xl text-base text-gray-300 lg:mx-auto">
+            {{ config('app.name') }} works by adding a bot to your chosen Discord Server. You can then ask the bot to 'pin' messages and it will add them to your account. You can set Privacy so your Scrap Books can be private or open to the public.
+          </p>
+          <p class="mt-4 max-w-12xl text-base text-gray-300 lg:mx-auto">
+            As well as viewing images on {{ config('app.name') }} you can also request them via the bot straight to you Discord Server. So whenever you want a quick laugh you can ask the bot for a random Quote, Image or both!
+          </p>
+        </div>
+      </div>
+    </div>
+
+    <footer>
+      <div class="bg-gray-600">
+        <p class="text-center p-4 text-gray-300">
+          Created by <a class="border-b text-green-400" href="https://th0rn0.co.uk" target="_blank">Th0rn0</a>. Built with Vodka and Hatred.
+        </p>
+      </div>
+    </footer>
+  </div>
 </body>
 </html>

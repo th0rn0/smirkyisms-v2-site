@@ -7,6 +7,7 @@ use App\Http\Controllers\SocialController;
 use App\Http\Controllers\TeamController;
 use App\Http\Controllers\QuoteController;
 use App\Http\Controllers\ImageController;
+use App\Http\Controllers\ScrapbookController;
 
 
 use LaravelRestcord\Discord;
@@ -55,18 +56,18 @@ Route::middleware(['auth:sanctum', 'verified', 'sessionHasDiscordToken'])->get('
 Route::middleware(['auth:sanctum', 'verified', 'sessionHasDiscordToken'])->get('/c/{team}/settings', [TeamController::class, 'settings'])->name('teams.settings');
 
 
-Route::middleware(['team.visibility'])->get('/c/{team}/', [TeamController::class, 'show'])->name('teams.show');
+Route::middleware(['team.visibility'])->get('/sb/{team}/', [ScrapbookController::class, 'show'])->name('scrapbooks.show');
 
 
 
 
-Route::middleware(['team.visibility'])->get('/c/{team}/quotes', [QuoteController::class, 'index'])->name('quotes.index');
+Route::middleware(['team.visibility'])->get('/sb/{team}/quotes', [QuoteController::class, 'index'])->name('quotes.index');
 
-Route::middleware(['team.visibility'])->get('/c/{team}/images', [ImageController::class, 'index'])->name('images.index');
+Route::middleware(['team.visibility'])->get('/sb/{team}/images', [ImageController::class, 'index'])->name('images.index');
 
-Route::middleware(['team.visibility'])->get('/c/{team}/quotes/{quote}', [QuoteController::class, 'show'])->name('quotes.show');
+Route::middleware(['team.visibility'])->get('/sb/{team}/quotes/{quote}', [QuoteController::class, 'show'])->name('quotes.show');
 
-Route::middleware(['team.visibility'])->get('/c/{team}/images/{image}', [ImageController::class, 'show'])->name('images.show');
+Route::middleware(['team.visibility'])->get('/sb/{team}/images/{image}', [ImageController::class, 'show'])->name('images.show');
 
 
 
