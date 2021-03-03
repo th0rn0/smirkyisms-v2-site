@@ -52,8 +52,8 @@ Route::get('/pass', function () {
 	dd('TBC');
 })->name('team.password');
 
-Route::middleware(['auth:sanctum', 'verified', 'sessionHasDiscordToken'])->get('/c/create', [TeamController::class, 'create'])->name('teams.create');
-Route::middleware(['auth:sanctum', 'verified', 'sessionHasDiscordToken'])->get('/c/{team}/settings', [TeamController::class, 'settings'])->name('teams.settings');
+Route::middleware(['auth:sanctum', 'verified', 'sessionHasDiscordToken'])->get('/teams/create', [TeamController::class, 'create'])->name('teams.create');
+Route::middleware(['auth:sanctum', 'verified', 'sessionHasDiscordToken'])->get('/teams/{team}/settings', [TeamController::class, 'settings'])->name('teams.settings');
 
 
 Route::middleware(['team.visibility'])->get('/sb/{team}/', [ScrapbookController::class, 'show'])->name('scrapbooks.show');
@@ -72,6 +72,6 @@ Route::middleware(['team.visibility'])->get('/sb/{team}/images/{image}', [ImageC
 
 
 
-Route::get('/auth/redirect', [SocialController::class, 'discordRedirect'])->name('auth.redirect');
+Route::get('/login', [SocialController::class, 'discordRedirect'])->name('login');
 
 Route::middleware(['sessionHasDiscordToken'])->get('/auth/callback', [SocialController::class, 'loginWithDiscord']);

@@ -8,7 +8,7 @@
     </x-slot>
 
     <x-slot name="content">
-        <div class="max-w-xl text-sm text-gray-600">
+        <div class="max-w-xl text-sm text-gray-300">
             {{ __('Once a community is deleted, all of its resources and data will be permanently deleted. Before deleting this community, please download any data or information regarding this community that you wish to retain.') }}
         </div>
 

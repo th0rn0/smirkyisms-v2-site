@@ -15,7 +15,7 @@
             <div class="flex items-center mt-2">
                 <img class="w-12 h-12 rounded-full object-cover" src="{{ $team->owner->profile_photo_url }}" alt="{{ $team->owner->name }}">
 
-                <div class="ml-4 leading-tight">
+                <div class="ml-4 leading-tight text-gray-300">
                     <div>{{ $team->owner->name }}</div>
                 </div>
             </div>

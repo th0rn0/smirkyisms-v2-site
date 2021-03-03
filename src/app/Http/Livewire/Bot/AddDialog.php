@@ -9,13 +9,13 @@ use LaravelRestcord\Discord\ApiClient;
 use Illuminate\Http\Request;
 
 
-class Add extends Component
+class AddDialog extends Component
 {
     public $servers;
 
     public function render()
     {
-        return view('livewire.bot.add');
+        return view('livewire.bot.add-dialog');
     }
 
     public function mount(Request $request)

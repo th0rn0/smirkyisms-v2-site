@@ -17,7 +17,7 @@
 	                    <div class="{{ $visiblityPermission->id != $team->team_visibility_permissions_id ? 'opacity-50' : '' }}">
 	                        <!-- Role Name -->
 	                        <div class="flex items-center">
-	                            <div class="text-sm text-gray-600 ">
+	                            <div class="text-sm text-gray-300 ">
 	                                {{ $visiblityPermission->name }}
 	                            </div>
                                 @if ($team->team_visibility_permissions_id == $visiblityPermission->id)
@@ -25,7 +25,7 @@
                                 @endif
 	                        </div>
 	                        <!-- Role Description -->
-	                        <div class="mt-2 text-xs text-gray-600">
+	                        <div class="mt-2 text-xs text-gray-300">
 	                            {{ $visiblityPermission->description }}
 	                        </div>
 	                    </div>

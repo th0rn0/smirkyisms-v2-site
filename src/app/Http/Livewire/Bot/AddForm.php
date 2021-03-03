@@ -26,7 +26,7 @@ class AddForm extends Component
     public function mount($server)
     {
         $this->icon = $server->icon;
-        $this->iconUrl = '';
+        $this->iconUrl = '/images/discord.png';
         if ($server->icon != '') {
         	$this->iconUrl = $server->iconUrl();
         }

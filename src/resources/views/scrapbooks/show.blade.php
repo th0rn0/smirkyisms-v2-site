@@ -3,9 +3,9 @@
     <div class="py-12">
         <div class="max-w-7xl mx-auto sm:px-6 lg:px-8">
 		 	@if ($random instanceof \App\Models\Image)
-				@livewire('images.show', [$random])
+				<x-image :image="$random"/>
 			@elseif ($random instanceof \App\Models\Quote)
-				@livewire('quotes.show', [$random])
+				<x-quote :quote="$random"/>
     		@endif
 		</div>
 	</div>
