@@ -2,17 +2,17 @@
 
 namespace Database\Factories;
 
-use App\Models\ItemPermission;
+use App\Models\TeamPrivacyPermission;
 use Illuminate\Database\Eloquent\Factories\Factory;
 
-class ItemPermissionFactory extends Factory
+class TeamPrivacyPermissionFactory extends Factory
 {
     /**
      * The name of the factory's corresponding model.
      *
      * @var string
      */
-    protected $model = ItemPermission::class;
+    protected $model = TeamPrivacyPermission::class;
 
     /**
      * Define the model's default state.

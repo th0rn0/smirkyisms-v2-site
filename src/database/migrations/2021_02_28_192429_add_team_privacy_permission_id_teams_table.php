@@ -4,7 +4,7 @@ use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 
-class AddTeamVisibilityPermissionIdTeamsTable extends Migration
+class AddTeamPrivacyPermissionIdTeamsTable extends Migration
 {
     /**
      * Run the migrations.
@@ -14,7 +14,7 @@ class AddTeamVisibilityPermissionIdTeamsTable extends Migration
     public function up()
     {
         Schema::table('teams', function (Blueprint $table) {
-            $table->foreignId('team_visibility_permissions_id')->default(1)->after('personal_team');
+            $table->foreignId('team_privacy_permissions_id')->default(1)->after('personal_team');
         });
     }
 
@@ -26,7 +26,7 @@ class AddTeamVisibilityPermissionIdTeamsTable extends Migration
     public function down()
     {
         Schema::table('teams', function (Blueprint $table) {
-            $table->dropColumn('team_visibility_permissions_id');
+            $table->dropColumn('team_privacy_permissions_id');
         });
     }
 }

@@ -14,12 +14,12 @@
     <meta name="msapplication-TileColor" content="#0ed3cf">
     <meta name="theme-color" content="#0ed3cf">
 
-    <meta property="og:image" content="https://tailwindcomponents.com/storage/917/conversions/temp66505-ogimage.jpg?v=2021-03-01 00:16:06" />
+    <meta property="og:image" content="{{ url('/images/honor.jpg') }}" />
     <meta property="og:image:width" content="1280" />
     <meta property="og:image:height" content="640" />
     <meta property="og:image:type" content="image/png" />
 
-    <meta property="og:url" content="https://tailwindcomponents.com/component/landing-page-with-tailwind-css-2/landing" />
+    <meta property="og:url" content="{{ url('/images/honor.jpg') }}" />
     <meta property="og:title" content="Smirkyisms By Th0rn0" />
     <meta property="og:description" content="Inspired by Rickyisms from Trailer Park Boys." />
 
@@ -27,10 +27,9 @@
     <meta name="twitter:site" content="@th0rn0" />
     <meta name="twitter:title" content="Smirkyisms By Th0rn0" />
     <meta name="twitter:description" content="Inspired by Rickyisms from Trailer Park Boys." />
-    <meta name="twitter:image" content="https://tailwindcomponents.com/storage/917/conversions/temp66505-ogimage.jpg?v=2021-03-01 00:16:06" />
+    <meta name="twitter:image" content="{{ url('/images/honor.jpg') }}" />
 
     <title>Smirkyisms</title>
-    {{-- <link rel="stylesheet" href="https://unpkg.com/tailwindcss@1.0.4/dist/tailwind.min.css"> --}}
     <link rel="stylesheet" href="{{ mix('css/app.css') }}">
 </head>
 <body class="bg-gray-200">

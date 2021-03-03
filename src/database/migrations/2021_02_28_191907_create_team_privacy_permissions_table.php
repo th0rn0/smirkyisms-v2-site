@@ -4,7 +4,7 @@ use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 
-class CreateTeamVisibilityPermissionsTable extends Migration
+class CreateTeamPrivacyPermissionsTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,7 +13,7 @@ class CreateTeamVisibilityPermissionsTable extends Migration
      */
     public function up()
     {
-        Schema::create('team_visibility_permissions', function (Blueprint $table) {
+        Schema::create('team_privacy_permissions', function (Blueprint $table) {
             $table->id();
             $table->string('name');
             $table->string('value');
@@ -29,6 +29,6 @@ class CreateTeamVisibilityPermissionsTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('team_visibility_permissions');
+        Schema::dropIfExists('team_privacy_permissions');
     }
 }
