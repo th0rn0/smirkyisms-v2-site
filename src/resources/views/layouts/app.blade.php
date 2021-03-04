@@ -17,12 +17,12 @@
         @livewireStyles
 
         <!-- Scripts -->
-        <script src="{{ mix('js/app.js') }}" defer></script>
+        <script src="{{ mix('js/app.js') }}"></script>
     </head>
     <body class="font-sans antialiased">
         <x-jet-banner />
 
-        <div class="min-h-screen bg-gray-600">
+        <div class="flex flex-col min-h-screen bg-gray-600">
             @livewire('navigation-menu')
 
             <!-- Page Heading -->
@@ -35,16 +35,15 @@
             @endif
 
             <!-- Page Content -->
-            <main>
+            <main class="flex-grow">
                 {{ $slot }}
             </main>
+            <footer>
+              <p class="text-center p-4 bg-gray-600 text-gray-300">
+                Created by <a class="border-b text-green-400" href="https://th0rn0.co.uk" target="_blank">Th0rn0</a>. Built with Vodka and Hatred.
+              </p>
+            </footer>
         </div>
-
-        <footer>
-          <p class="text-center p-4 bg-gray-600 text-gray-300">
-            Created by <a class="border-b text-green-400" href="https://th0rn0.co.uk" target="_blank">Th0rn0</a>. Built with Vodka and Hatred.
-          </p>
-        </footer>
 
         @stack('modals')
 

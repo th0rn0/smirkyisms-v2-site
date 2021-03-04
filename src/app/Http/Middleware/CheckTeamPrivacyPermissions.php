@@ -5,7 +5,7 @@ namespace App\Http\Middleware;
 use Closure;
 use Illuminate\Http\Request;
 
-class CheckTeamVisibilityPermissions
+class CheckTeamPrivacyPermissions
 {
     /**
      * Handle an incoming request.
@@ -16,14 +16,14 @@ class CheckTeamVisibilityPermissions
      */
     public function handle(Request $request, Closure $next)
     {
-        if ($request->team->visibility->value == 'priv') {
+        if ($request->team->privacy->value == 'priv') {
             return redirect('/');
         }
-        if ($request->team->visibility->value == 'link') {
+        if ($request->team->privacy->value == 'link') {
             // TODO
             dd('TBC');
         }
-        if ($request->team->visibility->value == 'pass') {
+        if ($request->team->privacy->value == 'pass') {
             return redirect()->route('team.password');
         }
         return $next($request);

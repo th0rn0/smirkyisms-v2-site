@@ -56,18 +56,18 @@ Route::middleware(['auth:sanctum', 'verified', 'sessionHasDiscordToken'])->get('
 Route::middleware(['auth:sanctum', 'verified', 'sessionHasDiscordToken'])->get('/teams/{team}/settings', [TeamController::class, 'settings'])->name('teams.settings');
 
 
-Route::middleware(['team.visibility'])->get('/sb/{team}/', [ScrapbookController::class, 'show'])->name('scrapbooks.show');
+Route::middleware(['team.privacy'])->get('/sb/{team}/', [ScrapbookController::class, 'show'])->name('scrapbooks.show');
 
 
 
 
-Route::middleware(['team.visibility'])->get('/sb/{team}/quotes', [QuoteController::class, 'index'])->name('quotes.index');
+Route::middleware(['team.privacy'])->get('/sb/{team}/quotes', [QuoteController::class, 'index'])->name('quotes.index');
 
-Route::middleware(['team.visibility'])->get('/sb/{team}/images', [ImageController::class, 'index'])->name('images.index');
+Route::middleware(['team.privacy'])->get('/sb/{team}/images', [ImageController::class, 'index'])->name('images.index');
 
-Route::middleware(['team.visibility'])->get('/sb/{team}/quotes/{quote}', [QuoteController::class, 'show'])->name('quotes.show');
+Route::middleware(['team.privacy'])->get('/sb/{team}/quotes/{quote}', [QuoteController::class, 'show'])->name('quotes.show');
 
-Route::middleware(['team.visibility'])->get('/sb/{team}/images/{image}', [ImageController::class, 'show'])->name('images.show');
+Route::middleware(['team.privacy'])->get('/sb/{team}/images/{image}', [ImageController::class, 'show'])->name('images.show');
 
 
 

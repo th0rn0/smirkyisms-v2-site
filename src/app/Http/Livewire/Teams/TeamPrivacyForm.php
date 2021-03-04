@@ -13,6 +13,10 @@ class TeamPrivacyForm extends Component
 
 	public $privacyPermissions;
 
+    public $updateTeamPrivacyForm = [
+        'id' => '',
+    ];
+
     public function render()
     {
         return view('livewire.teams.team-privacy-form');
@@ -20,6 +24,7 @@ class TeamPrivacyForm extends Component
 
     public function mount(Team $team)
     {
+        $this->updateTeamPrivacyForm['id'] = $team->team_privacy_permissions_id;
     	$this->team = $team;
     	$this->privacyPermissions = TeamPrivacyPermission::all();
     }

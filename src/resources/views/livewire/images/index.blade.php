@@ -1,6 +1,6 @@
 <div>
 	@if ($images->isEmpty())
-		<div class="text-gray-300">
+		<div class="text-indigo-300 text-lg text-center">
 			Nothing to see here...
 		</div>
 	@endif

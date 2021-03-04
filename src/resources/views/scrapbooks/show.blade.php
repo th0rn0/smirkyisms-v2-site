@@ -6,7 +6,11 @@
 				<x-image :image="$random"/>
 			@elseif ($random instanceof \App\Models\Quote)
 				<x-quote :quote="$random"/>
-    		@endif
+    		@else
+	    		<div class="text-indigo-300 text-lg text-center">
+	    			Nothing to see here...
+	    		</div>
+			@endif
 		</div>
 	</div>
 </x-app-layout>
