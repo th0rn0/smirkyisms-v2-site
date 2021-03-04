@@ -11,6 +11,10 @@ class TeamPrivacyForm extends Component
 {
 	public Team $team;
 
+    public $password;
+
+    public $password_confirmation;
+
 	public $privacyPermissions;
 
     public $updateTeamPrivacyForm = [
@@ -24,8 +28,27 @@ class TeamPrivacyForm extends Component
 
     public function mount(Team $team)
     {
-        $this->updateTeamPrivacyForm['id'] = $team->team_privacy_permissions_id;
+        $this->updateTeamPrivacyForm['id'] = $team->privacy_permissions_id;
     	$this->team = $team;
     	$this->privacyPermissions = TeamPrivacyPermission::all();
     }
+
+    public function updatePrivacy()
+    {
+        $this->team->setPrivacy($this->updateTeamPrivacyForm['id']);
+        $this->emit('saved');
+    }
+
+    public function updatePrivacyPassword()
+    {
+        $validatedData = $this->validate(
+            [
+            'password'         => 'required',
+            'password_confirmation' => 'required|same:password'
+            ]
+        );
+        $this->team->setPrivacyPassword($this->password);
+        $this->emit('savedPassword');
+    }
+
 }

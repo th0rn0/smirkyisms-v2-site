@@ -7,6 +7,7 @@ use Laravel\Jetstream\Events\TeamCreated;
 use Laravel\Jetstream\Events\TeamDeleted;
 use Laravel\Jetstream\Events\TeamUpdated;
 use Laravel\Jetstream\Team as JetstreamTeam;
+use Illuminate\Support\Facades\Hash;
 
 use App\Models\BotServer;
 use App\Models\Quote;
@@ -38,7 +39,7 @@ class Team extends JetstreamTeam
         'name',
         'personal_team',
         'slug',
-        'team_visibility_permissions_id',
+        'privacy_permissions_id',
     ];
 
     /**
@@ -100,9 +101,9 @@ class Team extends JetstreamTeam
         return $this->hasMany(Image::class);
     }
 
-   public function privacy()
+    public function privacy()
     {
-        return $this->belongsTo(TeamPrivacyPermission::class, 'team_privacy_permissions_id');
+        return $this->belongsTo(TeamPrivacyPermission::class, 'privacy_permissions_id');
     }
 
     /**
@@ -157,5 +158,17 @@ class Team extends JetstreamTeam
                 break;
         }
         return $item;
+    }
+
+    public function setPrivacy($privacy)
+    {
+        $this->privacy_permissions_id = $privacy;
+        $this->save();
+    }
+
+    public function setPrivacyPassword($password)
+    {
+        $this->privacy_password = Hash::make($password);
+        $this->save();
     }
 }

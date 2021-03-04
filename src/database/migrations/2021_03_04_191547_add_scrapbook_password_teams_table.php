@@ -4,7 +4,7 @@ use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 
-class AddTeamPrivacyPermissionIdTeamsTable extends Migration
+class AddScrapbookPasswordTeamsTable extends Migration
 {
     /**
      * Run the migrations.
@@ -14,7 +14,7 @@ class AddTeamPrivacyPermissionIdTeamsTable extends Migration
     public function up()
     {
         Schema::table('teams', function (Blueprint $table) {
-            $table->foreignId('privacy_permissions_id')->default(1)->after('personal_team');
+            $table->string('privacy_password')->default(\Hash::make(\Str::random(10)))->nullable()->after('privacy_permissions_id');
         });
     }
 
@@ -26,7 +26,7 @@ class AddTeamPrivacyPermissionIdTeamsTable extends Migration
     public function down()
     {
         Schema::table('teams', function (Blueprint $table) {
-            $table->dropColumn('privacy_permissions_id');
+            $table->dropColumn('privacy_password');
         });
     }
 }

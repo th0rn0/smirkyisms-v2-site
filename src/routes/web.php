@@ -31,35 +31,22 @@ Route::get('/', function () {
     return view('welcome');
 });
 
-Route::get('/how-it-works', function () {
-	// TODO
-	dd('TBC');
-})->name('howitworks');
-
-Route::get('/about', function () {
-	// TODO
-	dd('TBC');
-})->name('about');
-
-
 Route::middleware(['auth:sanctum', 'verified', 'sessionHasDiscordToken'])->get('/dashboard', function () {
     return view('dashboard');
 })->name('dashboard');
 
 
-Route::get('/pass', function () {
-	// TODO
-	dd('TBC');
-})->name('team.password');
 
 Route::middleware(['auth:sanctum', 'verified', 'sessionHasDiscordToken'])->get('/teams/create', [TeamController::class, 'create'])->name('teams.create');
 Route::middleware(['auth:sanctum', 'verified', 'sessionHasDiscordToken'])->get('/teams/{team}/settings', [TeamController::class, 'settings'])->name('teams.settings');
 
 
+
+Route::get('/sb/{team}/access', [ScrapbookController::class, 'showAccess'])->name('scrapbook.password');
+Route::post('/sb/{team}/access', [ScrapbookController::class, 'postAccess'])->name('scrapbook.password');
+
+
 Route::middleware(['team.privacy'])->get('/sb/{team}/', [ScrapbookController::class, 'show'])->name('scrapbooks.show');
-
-
-
 
 Route::middleware(['team.privacy'])->get('/sb/{team}/quotes', [QuoteController::class, 'index'])->name('quotes.index');
 

@@ -17,6 +17,7 @@
         @livewireStyles
 
         <!-- Scripts -->
+        @livewireScripts
         <script src="{{ mix('js/app.js') }}"></script>
     </head>
     <body class="font-sans antialiased">
@@ -47,6 +48,5 @@
 
         @stack('modals')
 
-        @livewireScripts
     </body>
 </html>

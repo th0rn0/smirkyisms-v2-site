@@ -23,8 +23,16 @@ class CheckTeamPrivacyPermissions
             // TODO
             dd('TBC');
         }
-        if ($request->team->privacy->value == 'pass') {
-            return redirect()->route('team.password');
+        if (
+            !$request->session()->has($request->team->slug . "_scrapbook") &&
+            $request->team->privacy->value == 'pass') {
+            return redirect()->route('scrapbook.password', ['team' => $request->team]);
+        }
+        if (
+            $request->session()->has($request->team->slug . "_scrapbook") &&
+            $request->session()->get($request->team->slug . "_scrapbook") != 1
+        ) {
+            return redirect()->route('scrapbook.password', ['team' => $request->team]);
         }
         return $next($request);
     }
