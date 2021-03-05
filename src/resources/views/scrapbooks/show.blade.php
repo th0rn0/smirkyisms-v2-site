@@ -3,9 +3,13 @@
     <div class="py-12">
         <div class="max-w-7xl mx-auto sm:px-6 lg:px-8">
 		 	@if ($random instanceof \App\Models\Image)
-				<x-image :image="$random"/>
+	    		<a href="{{ route('images.show', ['team' => $team, 'image' => $random]) }}">
+					<x-image :image="$random"/>
+				</a>
 			@elseif ($random instanceof \App\Models\Quote)
-				<x-quote :quote="$random"/>
+	    		<a href="{{ route('quotes.show', ['team' => $team, 'quote' => $random]) }}">
+					<x-quote :quote="$random"/>
+				</a>
     		@else
 	    		<div class="text-indigo-300 text-lg text-center">
 	    			Nothing to see here...

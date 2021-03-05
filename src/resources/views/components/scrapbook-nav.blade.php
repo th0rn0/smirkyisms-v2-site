@@ -11,22 +11,24 @@
                     </a>
                 </div>
 
-                <!-- Navigation Links -->
-                <div class="hidden space-x-8 sm:-my-px sm:ml-10 sm:flex">
-                    <x-jet-nav-link href="{{ route('scrapbooks.show', ['team' => $team->slug]) }}" :active="request()->routeIs('scrapbooks.show', ['team' => $team->slug])">
-                        {{ __('Random') }}
-                    </x-jet-nav-link>
-                </div>
-             	<div class="hidden space-x-8 sm:-my-px sm:ml-10 sm:flex">
-                    <x-jet-nav-link href="{{ route('quotes.index', ['team' => $team->slug]) }}" :active="request()->routeIs('quotes.index', ['team' => $team->slug])">
-                        {{ __('Quotes') }}
-                    </x-jet-nav-link>
-                </div>
-            	<div class="hidden space-x-8 sm:-my-px sm:ml-10 sm:flex">
-                    <x-jet-nav-link href="{{ route('images.index', ['team' => $team->slug]) }}" :active="request()->routeIs('images.index', ['team' => $team->slug])">
-                        {{ __('Images') }}
-                    </x-jet-nav-link>
-                </div>
+                @if ($team->privacy_permissions_id != 4)
+                    <!-- Navigation Links -->
+                    <div class="hidden space-x-8 sm:-my-px sm:ml-10 sm:flex">
+                        <x-jet-nav-link href="{{ route('scrapbooks.show', ['team' => $team->slug]) }}" :active="request()->routeIs('scrapbooks.show', ['team' => $team->slug])">
+                            {{ __('Random') }}
+                        </x-jet-nav-link>
+                    </div>
+                 	<div class="hidden space-x-8 sm:-my-px sm:ml-10 sm:flex">
+                        <x-jet-nav-link href="{{ route('quotes.index', ['team' => $team->slug]) }}" :active="request()->routeIs('quotes.index', ['team' => $team->slug])">
+                            {{ __('Quotes') }}
+                        </x-jet-nav-link>
+                    </div>
+                	<div class="hidden space-x-8 sm:-my-px sm:ml-10 sm:flex">
+                        <x-jet-nav-link href="{{ route('images.index', ['team' => $team->slug]) }}" :active="request()->routeIs('images.index', ['team' => $team->slug])">
+                            {{ __('Images') }}
+                        </x-jet-nav-link>
+                    </div>
+                @endif
             </div>
 
             <!-- Hamburger -->

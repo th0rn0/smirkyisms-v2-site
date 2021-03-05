@@ -6,6 +6,7 @@ use Closure;
 use Illuminate\Http\Request;
 
 class CheckTeamPrivacyPermissions
+
 {
     /**
      * Handle an incoming request.
@@ -17,22 +18,26 @@ class CheckTeamPrivacyPermissions
     public function handle(Request $request, Closure $next)
     {
         if ($request->team->privacy->value == 'priv') {
-            return redirect('/');
+            return redirect()->route('scrapbooks.denied', ['team' => $request->team]);
         }
         if ($request->team->privacy->value == 'link') {
-            // TODO
-            dd('TBC');
+            if (
+                $request->route()->getName() != 'quotes.show' &&
+                $request->route()->getName() != 'images.show'
+            ) {
+                return redirect()->route('scrapbooks.denied', ['team' => $request->team]);
+            }
         }
         if (
             !$request->session()->has($request->team->slug . "_scrapbook") &&
             $request->team->privacy->value == 'pass') {
-            return redirect()->route('scrapbook.password', ['team' => $request->team]);
+            return redirect()->route('scrapbooks.password', ['team' => $request->team]);
         }
         if (
             $request->session()->has($request->team->slug . "_scrapbook") &&
             $request->session()->get($request->team->slug . "_scrapbook") != 1
         ) {
-            return redirect()->route('scrapbook.password', ['team' => $request->team]);
+            return redirect()->route('scrapbooks.password', ['team' => $request->team]);
         }
         return $next($request);
     }

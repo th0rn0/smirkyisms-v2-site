@@ -36,4 +36,9 @@ class ScrapbookController extends Controller
 		$request->session()->put($team->slug . "_scrapbook", 1);
 		return redirect()->route('scrapbooks.show', ['team' => $team]);
     }
+
+    public function showDenied(Team $team)
+    {
+    	return view('scrapbooks.denied')->withTeam($team);
+    }
 }

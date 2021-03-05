@@ -1,12 +1,8 @@
 <x-app-layout>
-    <x-slot name="header">
-        <h2 class="font-semibold text-xl text-gray-400 leading-tight">
-            {{ __($team->name) }}
-        </h2>
-    </x-slot>
-    <div>
-		<div>
-	    	@livewire( 'images.show', [$image] )
+    <x-scrapbook-nav :team="$team"/>
+    <div class="py-12">
+        <div class="max-w-7xl mx-auto sm:px-6 lg:px-8">
+            <x-image :image="$image" />
 		</div>
 	</div>
 </x-app-layout>

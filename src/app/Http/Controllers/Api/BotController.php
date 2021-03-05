@@ -66,10 +66,14 @@ class BotController extends BaseController
 	  	$validator = Validator::make($request->all(), [
 	        'text' => 'required|string',
 	        'quote_by' => 'required',
+	        'quote_by_id' => 'required',
 			'submitted_by' => 'required',
+			'submitted_by_id' => 'required',
 			'channel_name' => 'required',
+			'channel_name_id' => 'required',
 	        'token' => 'required|exists:bot_servers',
 	        'guild_id' => 'required|exists:bot_servers',
+	        'guild_name' => 'required',
 	    ]);
 	    if($validator->fails()){
             return $this->sendError('Validation Error', $validator->errors(), 422);       
@@ -92,10 +96,14 @@ class BotController extends BaseController
 	  	$validator = Validator::make($request->all(), [
 	        'image' => 'required|image',
 	        'image_by' => 'required',
+	        'image_by_id' => 'required',
 			'submitted_by' => 'required',
+			'submitted_by_id' => 'required',
 			'channel_name' => 'required',
+			'channel_name_id' => 'required',
 	        'token' => 'required|exists:bot_servers',
 	        'guild_id' => 'required|exists:bot_servers',
+	        'guild_name' => 'required',
 	    ]);
 	    if($validator->fails()){
             return $this->sendError('Validation Error.', $validator->errors(), 422);       

@@ -9,6 +9,7 @@ use App\Models\Team;
 class Index extends Component
 {
 	public $quotes;
+	public $team;
 
     public function render()
     {
@@ -18,5 +19,6 @@ class Index extends Component
     public function mount(Team $team)
     {
     	$this->quotes = $team->quotes;
+    	$this->team = $team;
     }
 }

@@ -31,19 +31,21 @@ Route::get('/', function () {
     return view('welcome');
 });
 
-Route::middleware(['auth:sanctum', 'verified', 'sessionHasDiscordToken'])->get('/dashboard', function () {
+Route::middleware(['auth:sanctum', 'verified', 'sessionHasDiscordToken', 'terms.accepted'])->get('/dashboard', function () {
     return view('dashboard');
 })->name('dashboard');
 
 
 
-Route::middleware(['auth:sanctum', 'verified', 'sessionHasDiscordToken'])->get('/teams/create', [TeamController::class, 'create'])->name('teams.create');
-Route::middleware(['auth:sanctum', 'verified', 'sessionHasDiscordToken'])->get('/teams/{team}/settings', [TeamController::class, 'settings'])->name('teams.settings');
+Route::middleware(['auth:sanctum', 'verified', 'sessionHasDiscordToken', 'terms.accepted'])->get('/teams/create', [TeamController::class, 'create'])->name('teams.create');
+Route::middleware(['auth:sanctum', 'verified', 'sessionHasDiscordToken', 'terms.accepted'])->get('/teams/{team}/settings', [TeamController::class, 'settings'])->name('teams.settings');
 
 
 
-Route::get('/sb/{team}/access', [ScrapbookController::class, 'showAccess'])->name('scrapbook.password');
-Route::post('/sb/{team}/access', [ScrapbookController::class, 'postAccess'])->name('scrapbook.password');
+Route::get('/sb/{team}/access', [ScrapbookController::class, 'showAccess'])->name('scrapbooks.password');
+Route::post('/sb/{team}/access', [ScrapbookController::class, 'postAccess'])->name('scrapbooks.password');
+
+Route::get('/sb/{team}/denied', [ScrapbookController::class, 'showDenied'])->name('scrapbooks.denied');
 
 
 Route::middleware(['team.privacy'])->get('/sb/{team}/', [ScrapbookController::class, 'show'])->name('scrapbooks.show');

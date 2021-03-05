@@ -6,7 +6,9 @@
 	@endif
 	<div class="flex grid grid-flow-col grid-cols-3 gap-4">
 	    @foreach( $images as $image )
-	    	<x-image :image="$image" />
+	    	<a href="{{ route('images.show', ['team' => $team, 'image' => $image]) }}">
+	    		<x-image :image="$image" />
+	    	</a>
 		@endforeach
 	</div>
 </div>

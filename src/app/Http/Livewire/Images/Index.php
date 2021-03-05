@@ -9,6 +9,7 @@ use App\Models\Team;
 class Index extends Component
 {
 	public $images;
+    public $team;
 	public $limit;
 
     public function render()
@@ -19,5 +20,6 @@ class Index extends Component
     public function mount(Team $team, $limit = 5)
     {
     	$this->images = $team->images()->limit($limit)->get();
+        $this->team = $team;
     }
 }
