@@ -30,7 +30,18 @@
     <meta name="twitter:image" content="{{ url('/images/honor.jpg') }}" />
 
     <title>Smirkyisms</title>
+
+    <!-- Fonts -->
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;600;700&display=swap">
+    
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/creativetimofficial/tailwind-starter-kit/compiled-tailwind.min.css">
     <link rel="stylesheet" href="{{ mix('css/app.css') }}">
+
+    @livewireStyles
+
+    <!-- Scripts -->
+    @livewireScripts
+    <script src="{{ mix('js/app.js') }}"></script>
 </head>
 <body class="bg-gray-200">
   <div>

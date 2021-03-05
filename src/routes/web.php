@@ -61,4 +61,8 @@ Route::middleware(['team.privacy'])->get('/sb/{team}/images/{image}', [ImageCont
 
 Route::get('/login', [SocialController::class, 'discordRedirect'])->name('login');
 
-Route::middleware(['sessionHasDiscordToken'])->get('/auth/callback', [SocialController::class, 'loginWithDiscord']);
+Route::middleware([])->get('/login/confirm', [SocialController::class, 'loginConfirm'])->name('login.confirm');
+
+Route::middleware([])->post('/login/confirm', [SocialController::class, 'loginConfirmPost'])->name('login.confirm');
+
+Route::middleware(['sessionHasDiscordToken'])->get('/login/discord/callback', [SocialController::class, 'loginWithDiscord']);
