@@ -17,9 +17,14 @@ class Quote extends Model
     protected $fillable = [
         'text',
         'quote_by',
+        'quote_by_id',
         'submitted_by',
+        'submitted_by_id',
         'channel_name',
-        'team_id'
+        'channel_id',
+        'team_id',
+        'guild_name',
+        'guild_id'
     ];
 
 

@@ -17,9 +17,14 @@ class Image extends Model
     protected $fillable = [
         'path',
         'image_by',
+        'image_by_id',
         'submitted_by',
+        'submitted_by_id',
         'channel_name',
-        'team_id'
+        'channel_id',
+        'team_id',
+        'guild_name',
+        'guild_id'
     ];
 
 

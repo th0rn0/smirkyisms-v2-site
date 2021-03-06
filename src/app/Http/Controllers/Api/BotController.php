@@ -31,18 +31,21 @@ class BotController extends BaseController
 	    return $this->sendResponse($botServer, 'Server Acknowledged');
     }
 
+    // Confirm Bot has join a server and look up token
     public function confirm(Request $request)
     {
-	 	$request->validate([
-	        'guild_id' => 'required|exists:bot_servers',
-	        'token' => 'required'
+	 	$validator = Validator::make($request->all(), [
+	        'guild_id' => 'required|exists:bot_servers'
 	    ]);
+      	if($validator->fails()){
+            return $this->sendError('Validation Error', $validator->errors(), 422);       
+        }
 	    $botServer = BotServer::where('guild_id', $request->guild_id)->first();
-      	if ($botServer->token) {
+      	if ($botServer->confirmed) {
       		// Bot already Acquired
             return $this->sendError('Validation Error', ['Server Already Acquired by another Bot'], 422);       
 	    }
-    	$botServer->setToken($request->token);
+	    $botServer->setConfirmed();
 	    return $this->sendResponse($botServer, 'Server Confirmed');
     }
 
@@ -70,7 +73,7 @@ class BotController extends BaseController
 			'submitted_by' => 'required',
 			'submitted_by_id' => 'required',
 			'channel_name' => 'required',
-			'channel_name_id' => 'required',
+			'channel_id' => 'required',
 	        'token' => 'required|exists:bot_servers',
 	        'guild_id' => 'required|exists:bot_servers',
 	        'guild_name' => 'required',
@@ -84,9 +87,14 @@ class BotController extends BaseController
         $quote = Quote::create([
 	        'text' => $request->text,
 	        'quote_by' => $request->quote_by,
+	        'quote_by_id' => $request->quote_by_id,
 	        'submitted_by' => $request->submitted_by,
+	        'submitted_by_id' => $request->submitted_by_id,
 	        'channel_name' => $request->channel_name,
+	        'channel_id' => $request->channel_id,
 	        'team_id' => $botServer->team_id,
+	        'guild_name' => $request->guild_name,
+	        'guild_id' => $request->guild_id,
         ]);
         return $this->sendResponse($quote, 'Quote Successfully Added');
     }
@@ -100,7 +108,7 @@ class BotController extends BaseController
 			'submitted_by' => 'required',
 			'submitted_by_id' => 'required',
 			'channel_name' => 'required',
-			'channel_name_id' => 'required',
+			'channel_id' => 'required',
 	        'token' => 'required|exists:bot_servers',
 	        'guild_id' => 'required|exists:bot_servers',
 	        'guild_name' => 'required',
@@ -117,9 +125,14 @@ class BotController extends BaseController
         $image = Image::create([
 	        'path' => $path,
 	        'image_by' => $request->image_by,
+	        'image_by_id' => $request->image_by_id,
 	        'submitted_by' => $request->submitted_by,
+	        'submitted_by_id' => $request->submitted_by_id,
 	        'channel_name' => $request->channel_name,
+	        'channel_id' => $request->channel_id,
 	        'team_id' => $botServer->team_id,
+	        'guild_name' => $request->guild_name,
+	        'guild_id' => $request->guild_id,
         ]);
         return $this->sendResponse($image, 'Image Successfully Uploaded');
     }

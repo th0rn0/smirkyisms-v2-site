@@ -128,6 +128,7 @@ class Team extends JetstreamTeam
             $botServer = new BotServer;
             $botServer->team_id = $this->id;
             $botServer->guild_id = $guild_id;
+            $botServer->generateToken();
         }
         if (!$botServer->save()) {
             return false;

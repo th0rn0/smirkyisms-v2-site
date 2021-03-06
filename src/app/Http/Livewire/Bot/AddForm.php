@@ -14,10 +14,6 @@ class AddForm extends Component
 	public $name;
 	public $guildId;
 
-    protected $rules = [
-        'guildId' => 'required',
-    ];
-
     public function render()
     {
         return view('livewire.bot.add-form');
@@ -36,7 +32,6 @@ class AddForm extends Component
 
     public function submit(Request $request)
     {
-    	$this->validate();
         // $botServer->team_id = $request->name;
         if (!$request->user()->currentTeam->addBot($this->guildId)) {
         	return false;

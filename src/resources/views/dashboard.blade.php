@@ -91,12 +91,12 @@
                     <div>
                         <x-jet-section-border />
                         <div class="text-xl font-bold leading-normal mt-0 mb-4 text-indigo-300">
-                            Quotes
+                            Latest Quotes
                         </div>
                         @livewire('quotes.index', [Auth::user()->currentTeam], 6)
                         <x-jet-section-border />
                         <div class="text-xl font-bold leading-normal mt-0 mb-4 text-indigo-300">
-                            Images
+                            Latest Images
                         </div>
                         @livewire('images.index', [Auth::user()->currentTeam], 6)
                     </div>

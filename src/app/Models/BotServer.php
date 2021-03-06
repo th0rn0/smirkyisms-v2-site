@@ -4,6 +4,7 @@ namespace App\Models;
 
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
+use Illuminate\Support\Str;
 
 class BotServer extends Model
 {
@@ -17,9 +18,15 @@ class BotServer extends Model
     protected $fillable = [
         'team_id',
         'guild_id',
-        'token',
     ];
 
+    public static function boot() {
+        parent::boot();
+
+        static::creating(function($team) { 
+            $team->token = $team->generateToken();
+        });
+    }
 
     public function team()
     {
@@ -30,6 +37,17 @@ class BotServer extends Model
     {
         $this->token = $token;
         $this->save();
-        return true;
+    }
+
+    public function generateToken()
+    {
+        $token = Str::random(60);
+        return hash('sha256', $token);
+    }
+
+    public function setConfirmed()
+    {
+        $this->confirmed = true;
+        $this->save();
     }
 }
