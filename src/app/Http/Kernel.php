@@ -64,5 +64,6 @@ class Kernel extends HttpKernel
         'verified' => \Illuminate\Auth\Middleware\EnsureEmailIsVerified::class,
         'team.privacy' => \App\Http\Middleware\CheckTeamPrivacyPermissions::class,
         'terms.accepted' => \App\Http\Middleware\CheckTermsAccepted::class,
+        'bot.token' => \App\Http\Middleware\CheckBotToken::class,
     ];
 }

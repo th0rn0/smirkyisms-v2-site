@@ -34,9 +34,10 @@ return [
         'client_id' => env('DISCORD_CLIENT_ID'),  
         'client_secret' => env('DISCORD_CLIENT_SECRET'),  
         'redirect' => env('DISCORD_REDIRECT_URI'),
-      
+        'bot_redirect' => env('DISCORD_BOT_REDIRECT_URI'),
         // optional
         'allow_gif_avatars' => (bool)env('DISCORD_AVATAR_GIF', true),
         'avatar_default_extension' => env('DISCORD_EXTENSION_DEFAULT', 'jpg'), // only pick from jpg, png, webp
+        'bot_api_token' => env('DISCORD_BOT_API_TOKEN'),
     ],
 ];

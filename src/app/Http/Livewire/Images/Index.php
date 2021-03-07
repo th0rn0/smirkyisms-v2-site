@@ -17,9 +17,13 @@ class Index extends Component
         return view('livewire.images.index');
     }
 
-    public function mount(Team $team, $limit = 5)
+    public function mount(Team $team, $limit = 0)
     {
-    	$this->images = $team->images()->limit($limit)->get();
+        if ($limit <= 0) {
+            $this->images = $team->images()->inRandomOrder()->orderBy('created_at', 'ASC')->get();
+        } else {
+            $this->images = $team->images()->inRandomOrder()->orderBy('created_at', 'ASC')->limit($limit)->get();
+        }
         $this->team = $team;
     }
 }

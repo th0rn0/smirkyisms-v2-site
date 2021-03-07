@@ -16,21 +16,6 @@ use App\Models\Image;
 
 class BotController extends BaseController
 {
-    public function acknowledge(Request $request)
-    {
-	    $validator = Validator::make($request->all(), [
-	        'guild_id' => 'required|exists:bot_servers',
-	        'token' => 'required|exists:bot_servers'
-	    ]);
-	    if($validator->fails()){
-            return $this->sendError('Validation Error.', $validator->errors());       
-        }
-	    if (!$botServer = BotServer::where('guild_id', $request->guild_id)->where('token', $request->token)->first()) {
-            return $this->sendError('Validation Error', ['Invalid Server Token or Guild ID'], 422);
-	    }
-	    return $this->sendResponse($botServer, 'Server Acknowledged');
-    }
-
     // Confirm Bot has join a server and look up token
     public function confirm(Request $request)
     {
@@ -51,12 +36,15 @@ class BotController extends BaseController
 
     public function leave(Request $request)
     {
-		$request->validate([
-	        'guild_id' => 'required|exists:bot_servers',
-	        'token' => 'required|exists:bot_servers'
+		$validator = Validator::make($request->all(), [
+	        'guild_id' => 'required',
+	        'token' => 'required'
 	    ]);
+	    if($validator->fails()){
+            return $this->sendError('Validation Error', $validator->errors(), 422);       
+        }
 	    if (!$botServer = BotServer::where('guild_id', $request->guild_id)->where('token', $request->token)->first()) {
-            return $this->sendError('Validation Error', ['Invalid Server Token or Guild ID'], 422);
+            return $this->sendError('Validation Error', ['Invalid Server Token or Guild ID'], 401);
 	    }
 	    if (!$botServer->delete()) {
             return $this->sendError('Cannot Delete Server', [], 422);       
@@ -74,15 +62,15 @@ class BotController extends BaseController
 			'submitted_by_id' => 'required',
 			'channel_name' => 'required',
 			'channel_id' => 'required',
-	        'token' => 'required|exists:bot_servers',
-	        'guild_id' => 'required|exists:bot_servers',
+	        'token' => 'required',
+	        'guild_id' => 'required',
 	        'guild_name' => 'required',
 	    ]);
 	    if($validator->fails()){
             return $this->sendError('Validation Error', $validator->errors(), 422);       
         }
 	    if (!$botServer = BotServer::where('guild_id', $request->guild_id)->where('token', $request->token)->first()) {
-            return $this->sendError('Validation Error', ['Invalid Server Token or Guild ID'], 422);
+            return $this->sendError('Validation Error', ['Invalid Server Token or Guild ID'], 401);
 	    }
         $quote = Quote::create([
 	        'text' => $request->text,
@@ -109,15 +97,15 @@ class BotController extends BaseController
 			'submitted_by_id' => 'required',
 			'channel_name' => 'required',
 			'channel_id' => 'required',
-	        'token' => 'required|exists:bot_servers',
-	        'guild_id' => 'required|exists:bot_servers',
+	        'token' => 'required',
+	        'guild_id' => 'required',
 	        'guild_name' => 'required',
 	    ]);
 	    if($validator->fails()){
             return $this->sendError('Validation Error.', $validator->errors(), 422);       
         }
 	    if (!$botServer = BotServer::where('guild_id', $request->guild_id)->where('token', $request->token)->first()) {
-            return $this->sendError('Validation Error', ['Invalid Server Token or Guild ID'], 422);
+            return $this->sendError('Validation Error', ['Invalid Server Token or Guild ID'], 401);
 	    }
         if (!$path = Storage::putFile('teams/' . $botServer->team->slug, $request->file('image'))) {
             return $this->sendError('Upload Error', [], 422);       

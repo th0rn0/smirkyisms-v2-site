@@ -16,14 +16,18 @@ use App\Models\Image;
 class ImageController extends BaseController
 {
 
-	public function getFile(Image $image)
+	public function getFile(Request $request, Image $image)
 	{
+		if (!$request->header('server-token') || !$botServer = BotServer::where('token', $request->header('server-token'))->first()) {
+            return $this->sendError('Validation Error', ['Invalid server-token'], 401);
+		}
 		return base64_encode(Storage::get($image->path));
 	}
-	public function getRandom()
+	public function getRandom(Request $request)
 	{
-		// TO DO go through team
-		dd('asdasd');
-		return Image::inRandomOrder()->first();
+		if (!$request->header('server-token') || !$botServer = BotServer::where('token', $request->header('server-token'))->first()) {
+            return $this->sendError('Validation Error', ['Invalid server-token'], 401);
+		}
+		return $botServer->team->images()->inRandomOrder()->first();
 	}
 }

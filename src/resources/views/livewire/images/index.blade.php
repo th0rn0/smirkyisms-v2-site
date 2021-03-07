@@ -4,7 +4,7 @@
 			Nothing to see here...
 		</div>
 	@endif
-	<div class="flex grid grid-flow-col grid-cols-3 gap-4">
+	<div class="flex grid grid-cols-3 gap-4">
 	    @foreach( $images as $image )
 	    	<a href="{{ route('images.show', ['team' => $team, 'image' => $image]) }}">
 	    		<x-image :image="$image" />

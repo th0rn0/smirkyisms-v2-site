@@ -8,6 +8,7 @@ use LaravelRestcord\Discord;
 use LaravelRestcord\Discord\ApiClient;
 use Illuminate\Http\Request;
 
+use App\Models\BotServer;
 
 class AddDialog extends Component
 {

@@ -13,6 +13,12 @@
 
             {{-- @livewire('teams.team-member-manager', ['team' => $team]) --}}
 
+            @if ($team->bot)
+                <x-jet-section-border />
+
+                @livewire('teams.delete-bot-form', ['team' => $team])
+            @endif
+
             @if (Gate::check('delete', $team) && ! $team->personal_team)
                 <x-jet-section-border />
 

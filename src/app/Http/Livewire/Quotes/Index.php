@@ -16,9 +16,13 @@ class Index extends Component
         return view('livewire.quotes.index');
     }
 
-    public function mount(Team $team)
+    public function mount(Team $team, $limit = 0)
     {
-    	$this->quotes = $team->quotes;
+        if ($limit >= 0) {
+            $this->quotes = $team->quotes()->inRandomOrder()->orderBy('created_at', 'ASC')->get();
+        } else {
+            $this->quotes = $team->quotes()->inRandomOrder()->orderBy('created_at', 'ASC')->limit($limit)->get();
+        }
     	$this->team = $team;
     }
 }

@@ -11,10 +11,19 @@
 		    </div>
 		</div>
 	    <div class="text-center pb-4">
+            <x-jet-action-message class="mr-3" on="alreadyConfirmed">
+                {{ __('Cannot Add') }}
+            </x-jet-action-message>
     		<form wire:submit.prevent="submit">
-	            <x-jet-button>
-	                {{ __('Add Bot') }}
-	            </x-jet-button>
+    			@if ($confirmed)
+		            <x-jet-button disabled="true">
+		                {{ __('Already Confirmed') }}
+		            </x-jet-button>
+	            @else
+		            <x-jet-button>
+		                {{ __('Add Bot') }}
+		            </x-jet-button>
+	            @endif
 	        </form>
         </div>
 	</div>

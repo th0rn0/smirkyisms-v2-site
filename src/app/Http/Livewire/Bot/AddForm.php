@@ -5,6 +5,8 @@ namespace App\Http\Livewire\Bot;
 use Livewire\Component;
 use Illuminate\Http\Request;
 
+use App\Models\BotServer;
+
 use Auth;
 
 class AddForm extends Component
@@ -13,6 +15,7 @@ class AddForm extends Component
 	public $iconUrl;
 	public $name;
 	public $guildId;
+    public $confirmed = false;
 
     public function render()
     {
@@ -28,16 +31,22 @@ class AddForm extends Component
         }
         $this->name = $server->name;
         $this->guildId = $server->id;
+        if (BotServer::where('guild_id', $server->id)->first()) {
+            $this->confirmed = true;
+        }
     }
 
     public function submit(Request $request)
     {
+        if ($this->confirmed) {
+            $this->emit('alreadyConfirmed');
+        }
         // $botServer->team_id = $request->name;
         if (!$request->user()->currentTeam->addBot($this->guildId)) {
         	return false;
         }
     	return $this->redirect(
-    		'https://discord.com/api/oauth2/authorize?client_id=812732795980873739&permissions=388160&redirect_uri=http%3A%2F%2Flocalhost%3A8000%2Fbot%2Fadded&scope=bot&guild_id=' . $this->guildId
+    		config('services.discord.bot_redirect') . '&guild_id=' . $this->guildId
     	);
     }
 }
