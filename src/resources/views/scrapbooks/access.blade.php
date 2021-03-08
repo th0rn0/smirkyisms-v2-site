@@ -12,7 +12,7 @@
             </div>
         @endif
 
-        <form method="POST" action="{{ route('scrapbook.password', ['team' => $team]) }}">
+        <form method="POST" action="{{ route('scrapbooks.password', ['team' => $team]) }}">
             @csrf
 
             <div class="mt-4 mb-4">

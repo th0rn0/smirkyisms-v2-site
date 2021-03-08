@@ -7,7 +7,7 @@
             </x-slot>
 
             <x-slot name="description">
-                {{ __('The Privacy for the community\'s Scrapbook on Smirkyisms. This does not affect the bot!state') }}
+                {{ __('The Privacy for the community\'s Scrapbook on Smirkyisms. This does not affect the bot!') }}
             </x-slot>
 
             <x-slot name="form">

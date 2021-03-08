@@ -47,7 +47,9 @@ class TeamPrivacyForm extends Component
             'password_confirmation' => 'required|same:password'
             ]
         );
+        $this->team->setPrivacy($this->updateTeamPrivacyForm['id']);
         $this->team->setPrivacyPassword($this->password);
+        $this->emit('saved');
         $this->emit('savedPassword');
     }
 
