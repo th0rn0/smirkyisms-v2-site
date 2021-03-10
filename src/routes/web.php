@@ -43,7 +43,7 @@ Route::middleware(['auth:sanctum', 'verified', 'sessionHasDiscordToken', 'terms.
 
 
 Route::get('/sb/{team}/access', [ScrapbookController::class, 'showAccess'])->name('scrapbooks.password');
-Route::post('/sb/{team}/access', [ScrapbookController::class, 'postAccess'])->name('scrapbooks.password');
+Route::post('/sb/{team}/access', [ScrapbookController::class, 'postAccess'])->name('scrapbooks.password.post');
 
 Route::get('/sb/{team}/denied', [ScrapbookController::class, 'showDenied'])->name('scrapbooks.denied');
 
