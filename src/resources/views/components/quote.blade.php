@@ -12,7 +12,7 @@
         </div>
         <div class="w-full">
             <p class="text-md text-indigo-300 font-bold text-center">{{ $quote->quote_by }}</p>
-            <p class="text-xs text-gray-300 text-center">In the {{ $quote->channel_name }} Channel</p>
+            <p class="text-xs text-gray-300 text-center">In the #{{ $quote->channel_name }} Channel</p>
          	<p class="text-xs text-gray-300 text-center">Submitted by {{ $quote->submitted_by }}</p>
         </div>
     </div>

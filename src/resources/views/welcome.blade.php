@@ -45,6 +45,16 @@
 </head>
 <body class="bg-gray-200">
   <div>
+    <div class="py-2 bg-blue-600">
+      <div class="mx-auto">
+        <div class="text-center">
+          <p class="text-m text-gray-300">
+            {{ config('app.name') }} is still in beta. Any issues please <a href="mailto:smirkyisms@th0rn0.co.uk">contact us here</a>.
+          </p>
+        </div>
+      </div>
+    </div>
+
     <div class="relative bg-gray overflow-hidden">
       <div class="max-w-7xl mx-auto">
 

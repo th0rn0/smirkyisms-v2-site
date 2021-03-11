@@ -21,6 +21,15 @@
         <script src="{{ mix('js/app.js') }}"></script>
     </head>
     <body class="font-sans antialiased">
+        <div class="py-2 bg-blue-600">
+            <div class="mx-auto">
+                <div class="text-center">
+                    <p class="text-m text-gray-300">
+                        {{ config('app.name') }} is still in beta. Any issues please <a href="mailto:smirkyisms@th0rn0.co.uk">contact us here</a>.
+                    </p>
+                </div>
+            </div>
+        </div>
         <x-jet-banner />
 
         <div class="flex flex-col min-h-screen bg-gray-600">
