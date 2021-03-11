@@ -14,9 +14,9 @@ class CreateQuotesTable extends Migration
     public function up()
     {
         Schema::create('quotes', function (Blueprint $table) {
-            $table->id();
+            $table->id()->startingValue(1000);
             $table->foreignId('team_id')->nullable();
-            $table->string('text');
+            $table->text('text');
             $table->string('quote_by');
             $table->string('submitted_by');
             $table->string('channel_name');

@@ -7,7 +7,7 @@
         </div> --}}
         <div class="w-full mb-10">
             <div class="text-3xl text-indigo-400 text-left leading-tight h-3">“</div>
-            <p class="text-sm text-gray-300 text-center px-5">{{ $quote->text }}</p>
+            <p class="text-sm text-gray-300 text-center px-5">{{ htmlspecialchars_decode($quote->text) }}</p>
             <div class="text-3xl text-indigo-400 text-right leading-tight h-3 -mt-3">”</div>
         </div>
         <div class="w-full">
