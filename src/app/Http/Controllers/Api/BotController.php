@@ -90,7 +90,7 @@ class BotController extends BaseController
     public function addImage(Request $request)
     {
 	  	$validator = Validator::make($request->all(), [
-	        'image' => 'required|image',
+	        'image' => 'required|image|max:20000',
 	        'image_by' => 'required',
 	        'image_by_id' => 'required',
 			'submitted_by' => 'required',
