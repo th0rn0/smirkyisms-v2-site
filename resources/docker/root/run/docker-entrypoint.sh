@@ -35,6 +35,10 @@ file_env() {
 # 	echo 'OK'
 # fi
 
+# Bootstrap/cache Fix
+
+chmod -R 777 $NGINX_DOCUMENT_ROOT/bootstrap/cache
+
 # Database Wait check
 echo "---------------"
 echo "WAITING FOR $DB_HOST:$DB_PORT..."
