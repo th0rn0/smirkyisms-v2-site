@@ -62,3 +62,7 @@ RUN pecl install imagick
 RUN apk del .build-deps
 
 USER nobody
+
+COPY resources/docker/root/etc/nginx/nginx.conf /etc/nginx/conf.d/server.conf
+COPY src/ /var/www/html
+

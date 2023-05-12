@@ -1,7 +1,6 @@
 version: "2"
 services:
   app:
-    # image: trafex/php-nginx:latest
     build:
       context: .
     volumes:
