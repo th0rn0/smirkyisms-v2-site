@@ -1,5 +1,5 @@
-FROM th0rn0/php-nginx-base:latest
-MAINTAINER Thornton Phillis (dev@th0rn0.co.uk)
+FROM trafex/php-nginx:3.0.0
+LABEL Maintainer="Thornton Phillis (dev@th0rn0.co.uk)"
 
 # ENV - App Defaults
 
@@ -9,16 +9,56 @@ ENV DB_MIGRATE false
 
 # Files
 
-COPY resources/docker/root /
-WORKDIR $NGINX_DOCUMENT_ROOT
-COPY src/ $NGINX_DOCUMENT_ROOT
+USER root
 
+RUN apk add --no-cache --virtual .build-deps \
+	gcc \
+	g++ \
+	make
 
-RUN sed -i 's/;clear_env/clear_env/' /etc/php7/php-fpm.d/www.conf
-RUN sed -i 's/memory_limit = 128M/memory_limit = 512M/' /etc/php7/php.ini
-RUN sed -i 's/upload_max_filesize = 2M/upload_max_filesize = 512M/' /etc/php7/php.ini
-RUN sed -i 's/post_max_size = 8M/post_max_size = 512M/' /etc/php7/php.ini
+RUN apk add libmcrypt-dev \
+    imagemagick \
+    imagemagick-dev \
+    openssl-dev
 
-# Default Command
+RUN apk add --no-cache \
+        php81-session \
+        php81-openssl \
+        php81-json \
+        php81-dom \
+        php81-zip \
+        php81-bcmath \
+        php81-gd \
+        php81-odbc \
+        php81-gettext \
+        php81-xmlreader \
+        php81-xmlwriter \
+        php81-xml \
+        php81-simplexml \
+        php81-bz2 \
+        php81-iconv \
+        php81-curl \
+        php81-ctype \
+        php81-pcntl \
+        php81-posix \
+        php81-phar \
+        php81-opcache \
+        php81-mbstring \
+        php81-fileinfo \
+        php81-tokenizer \
+        php81-opcache \
+        php81-pdo \
+        php81-mysqli \
+        php81-pdo_mysql \
+        php81-pear \
+        php81-fpm \
+        php81-mbstring \
+        php81-fileinfo \
+        php81-pecl-imagick \
+    	php81-dev
 
-ENTRYPOINT ["/run/docker-entrypoint.sh"]
+RUN pecl install imagick
+
+RUN apk del .build-deps
+
+USER nobody
