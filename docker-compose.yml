@@ -1,11 +1,12 @@
 version: "2"
 services:
   app:
+    # image: trafex/php-nginx:latest
     build:
       context: .
-    working_dir: /web/html/
     volumes:
-      - $PWD/src/:/web/html/
+      - $PWD/src/:/var/www/html
+      - $PWD/resources/docker/root/etc/nginx/nginx.conf:/etc/nginx/conf.d/server.conf
     env_file: $PWD/src/.env
     ports:
       - 8000:80

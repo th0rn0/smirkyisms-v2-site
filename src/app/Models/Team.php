@@ -53,7 +53,7 @@ class Team extends JetstreamTeam
         'deleted' => TeamDeleted::class,
     ];
 
-    public function sluggable()
+    public function sluggable(): array
     {
         return [
             'slug' => [
