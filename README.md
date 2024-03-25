@@ -1,9 +1,3 @@
-# PHP, NGINX & MYSQL Boilerplate
+# Smirkyisms Site
 
-PHP-FPM, NGINX & MYSQL Docker stack for Development use. Has wait-for and helpers built in. See the ```.env.example```
-
-## Usage
-
-- Code goes into the ```src``` directory
-- Copy the ```.env.example``` into the ```src``` directory
-- Use ```docker-compose``` or the make file to launch the docker instances.
+Laravel Application to be used as a frontend for the Smirkyisms Quote bot. Coupled wit the Bot this provided a user interface for people to signup, invite the bot to their own discord server and have a account protected place to view and or share quotes and images saved from the discord server
